@@ -42,3 +42,9 @@ app < t : open /Applications/iTerm.app; skhd -k "escape"
 app < s : open /Applications/Safari.app; skhd -k "escape"
 app < m : open /System/Applications/Messages.app; skhd -k "escape"
 app < d : open /Applications/Discord.app; skhd -k "escape"
+
+# skhd bypass
+:: bypass @
+shift + alt + cmd - return; bypass
+bypass < shift + alt + cmd - return; default
+bypass < escape; default
