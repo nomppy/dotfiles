@@ -34,5 +34,5 @@ alt - p : yabai -m window --toggle zoom-parent
 alt - f : yabai -m window --toggle zoom-fullscreen
 
 # app binds
-shift + ctrl + cmd - t : open -n /Applications/iTerm.app
+shift + ctrl + cmd - t : open /Applications/iTerm.app
 shift + ctrl + cmd - s : open /Applications/Safari.app
