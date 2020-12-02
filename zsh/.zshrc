@@ -136,3 +136,6 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias af="alias-finder"
+alias afl="alias-finder -l"
+alias afe="alias-finder -e"
