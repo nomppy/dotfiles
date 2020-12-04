@@ -1,0 +1,23 @@
+source $HOME/.config/zsh/.diraliases
+lnd() {
+	if [[ $# == 0 ]]; then
+		cat ~/.config/zsh/.diraliases
+		return 0
+	elif  [[ $# == 1 ]]; then
+		a="$1=$PWD"
+	elif [[ $# == 2 ]]; then
+		a="$1=$(cd $2; pwd)"
+	fi
+
+	st=$(alias $1) 
+	if [[ $st == $a ]]; then
+		echo "unsetting alias $1"
+		unalias $1
+		sed -i '' "/$1/d" ~/.config/zsh/.diraliases
+	else
+		alias $1 && echo "alias $1 already exists: $st"\
+ 		|| echo "alias $a";alias $a;echo "alias $a" >> ~/.config/zsh/.diraliases
+	fi
+	
+	unset a
+}

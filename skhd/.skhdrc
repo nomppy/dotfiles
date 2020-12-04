@@ -42,6 +42,7 @@ app < t : open /Applications/iTerm.app; skhd -k "escape"
 app < s : open /Applications/Safari.app; skhd -k "escape"
 app < m : open /System/Applications/Messages.app; skhd -k "escape"
 app < d : open /Applications/Discord.app; skhd -k "escape"
+app < c : open "/Applications/Visual Studio Code.app/"; skhd -k "escape"
 
 # skhd bypass
 :: bypass @
