@@ -34,13 +34,14 @@ antigen bundle alias-finder
 antigen bundle colorize
 antigen bundle colored-man-pages
 
+antigen bundle mfaerevaag/wd
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 antigen apply
 
 #---------- AUTOLOAD ---------- 
 export FPATH="$HOME/.config/zsh/autoload/:$FPATH"
-autoload -Uz lnd; lnd
+#autoload -Uz lnd; lnd
 autoload -U colors && colors
 
 setopt promptsubst
@@ -65,3 +66,6 @@ alias q="exit"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+wd() {
+  . /Users/kenneth/bin/wd/wd.sh
+}
