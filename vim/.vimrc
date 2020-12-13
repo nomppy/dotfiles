@@ -1,3 +1,4 @@
+let mapleader=","
 set nocompatible              " be iMproved, required
 set number relativenumber
 filetype off                  " required
@@ -11,16 +12,15 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-" easy motion
-" nerd tree
-" nerd commenter
-" airline
-" goyo
-" coc
-" ultisnips
-" vimtex
-" ultisnips
-"
+Plugin 'easymotion/vim-easymotion'
+Plugin 'preservim/nerdtree'
+Plugin 'preservim/nerdcommenter'
+Plugin 'vim-airline/vim-airline'
+Plugin 'junegunn/goyo'
+Plugin 'neoclicde/coc'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'lervag/vimtex'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

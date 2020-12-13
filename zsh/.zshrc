@@ -47,3 +47,5 @@ fi
 alias af="alias-finder"
 alias afl="alias-finder -l"
 alias afe="alias-finder -e"
+alias v="vim"
+alias q="exit"
