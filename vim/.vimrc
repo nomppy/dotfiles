@@ -22,7 +22,18 @@ map <Leader>n :NERDTreeToggle<CR>
 
 " fuzzy search thing
 Plugin 'preservim/nerdcommenter'
+
+" AIRLINE 
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+let g:airline_theme='bubblegum'
+let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
+Plugin 'yggdroot/indentline'
+let g:indentLine_char='| '
+
 Plugin 'junegunn/goyo'
 Plugin 'neoclicde/coc'
 Plugin 'honza/vim-snippets'
@@ -73,6 +84,11 @@ nnoremap P P=`]<C-o>
 " Better search
 set hlsearch
 set incsearch
+
+" spellcheck
+setlocal spell
+set spelllang=en_us
+inoremap <c-l> <c-g>u<Esc>[s1z=`]a<c-g>u 
 
 set scrolloff=5 " Keep 5 lines above and below cursor
 
