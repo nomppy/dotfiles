@@ -34,8 +34,11 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 Plugin 'yggdroot/indentline'
 let g:indentLine_char='| '
 
-Plugin 'junegunn/goyo'
-Plugin 'neoclicde/coc'
+Plugin 'junegunn/goyo.vim'
+nnoremap <Leader>g :Goyo<CR>
+
+Plugin 'SirVer/ultisnips'
+Plugin 'neoclide/coc.nvim'
 Plugin 'honza/vim-snippets'
 Plugin 'lervag/vimtex'
 
@@ -86,13 +89,11 @@ set hlsearch
 set incsearch
 
 " spellcheck
-setlocal spell
-set spelllang=en_us
+"setlocal spell
+"set spelllang=en_us
 inoremap <c-l> <c-g>u<Esc>[s1z=`]a<c-g>u 
 
 set scrolloff=5 " Keep 5 lines above and below cursor
-
-set cursorline
 
 " move normally between wrapped lines
 nmap j gj

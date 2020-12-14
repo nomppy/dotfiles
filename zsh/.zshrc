@@ -37,6 +37,7 @@ antigen bundle colored-man-pages
 antigen bundle mfaerevaag/wd
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-autosuggestions
 
 antigen apply
 
