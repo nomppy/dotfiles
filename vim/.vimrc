@@ -12,7 +12,11 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'arcticicestudio/nord-vim'
+
 Plugin 'easymotion/vim-easymotion'
+
 Plugin 'preservim/nerdtree'
 let NERDTreeShowHidden=1
 let NERDTreeAutoDeleteBuffer=1
@@ -26,7 +30,7 @@ Plugin 'preservim/nerdcommenter'
 " AIRLINE 
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-let g:airline_theme='bubblegum'
+"let g:airline_theme='arcticicestudio/nord'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
@@ -38,12 +42,24 @@ Plugin 'junegunn/goyo.vim'
 nnoremap <Leader>g :Goyo<CR>
 
 Plugin 'SirVer/ultisnips'
-Plugin 'neoclide/coc.nvim'
+let g:UltiSnipsExpandTrigger='<tab>'
+let g:UltiSnipsForwardTrigger='<tab>'
+let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
+
 Plugin 'honza/vim-snippets'
+
+Plugin 'neoclide/coc.nvim'
 Plugin 'lervag/vimtex'
+let g:tex_flavor='latex'
+let g:vimtex_view_method='mupdf'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+colorscheme nord
+
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
@@ -89,8 +105,8 @@ set hlsearch
 set incsearch
 
 " spellcheck
-"setlocal spell
-"set spelllang=en_us
+setlocal spell
+set spelllang=en
 inoremap <c-l> <c-g>u<Esc>[s1z=`]a<c-g>u 
 
 set scrolloff=5 " Keep 5 lines above and below cursor
