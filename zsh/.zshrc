@@ -23,7 +23,6 @@ source ~/.antigen/antigen.zsh
 antigen use oh-my-zsh
 
 antigen theme romkatv/powerlevel10k
-source ~/.antigen/bundles/romkatv/powerlevel10k/powerlevel10k.zsh-theme
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundle git
