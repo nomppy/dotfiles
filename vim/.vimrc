@@ -30,7 +30,6 @@ Plugin 'preservim/nerdcommenter'
 " AIRLINE 
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-"let g:airline_theme='arcticicestudio/nord'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
@@ -121,6 +120,16 @@ nnoremap H ^
 vnoremap L $
 vnoremap L $
 
+" window movement
+nnoremap <Leader>wh :wincmd h<CR>
+nnoremap <Leader>wl :wincmd l<CR>
+nnoremap <Leader>wj :wincmd j<CR>
+nnoremap <Leader>wk :wincmd k<CR>
+
+" other window commands
+nnoremap <Leader>w  :wincmd<space>
+
+nnoremap <Leader>fw :FixWhiteSpace<CR>
 nnoremap ; :
 
 nmap <Leader>s :write<CR>

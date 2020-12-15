@@ -62,6 +62,13 @@ alias v="vim"
 alias q="exit"
 alias mupdf="mupdf-gl"
 
+alias -g @G='| grep'
+alias -g @L='| less'
+alias -g @Q='2>/dev/null'
+alias -g @S='>/dev/null'
+alias -g @H='| head'
+alias -g @T='| tail'
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 wd() {
