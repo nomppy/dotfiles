@@ -32,6 +32,7 @@ antigen bundle brews
 antigen bundle alias-finder
 antigen bundle colorize
 antigen bundle colored-man-pages
+antigen bundle command-not-found
 
 antigen bundle mfaerevaag/wd
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -40,18 +41,13 @@ antigen bundle zsh-users/zsh-autosuggestions
 
 antigen apply
 
+bindkey '^ ' autosuggest-accept
+
 #---------- AUTOLOAD ---------- 
 export FPATH="$HOME/.config/zsh/autoload/:$FPATH"
-#autoload -Uz lnd; lnd
 autoload -U colors && colors
 
 setopt promptsubst
-
-# command not found handler for osx
-HB_CNF_HANDLER="$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
-if [ -f "$HB_CNF_HANDLER" ]; then
-source "$HB_CNF_HANDLER";
-fi
 
 #---------- ZSH SCRIPTS ----------
 # for file in $HOME/.config/zsh/scripts/*.zsh; do
@@ -64,6 +60,7 @@ alias afl="alias-finder -l"
 alias afe="alias-finder -e"
 alias v="vim"
 alias q="exit"
+alias mupdf="mupdf-gl"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
