@@ -56,6 +56,7 @@ let g:vimtex_quickfix_mode=0
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+
 colorscheme nord
 
 filetype plugin indent on    " required
@@ -121,10 +122,23 @@ vnoremap L $
 vnoremap L $
 
 " window movement
+nnoremap <Leader>wH :wincmd H<CR>
+nnoremap <Leader>wJ :wincmd J<CR>
+nnoremap <Leader>wL :wincmd L<CR>
+nnoremap <Leader>wK :wincmd K<CR>
+
+" moving focus
 nnoremap <Leader>wh :wincmd h<CR>
 nnoremap <Leader>wl :wincmd l<CR>
 nnoremap <Leader>wj :wincmd j<CR>
 nnoremap <Leader>wk :wincmd k<CR>
+
+" resizing window
+nnoremap <Leader>w= :wincmd =<CR>
+nnoremap <Leader>w- :wincmd resize -
+nnoremap <Leader>w+ :wincmd resize +
+" previous window
+nnoremap <Leader>w<Tab> :wincmd p<CR> 
 
 " other window commands
 nnoremap <Leader>w  :wincmd<space>
