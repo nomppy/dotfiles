@@ -51,10 +51,9 @@ Plugin 'honza/vim-snippets'
 Plugin 'neoclide/coc.nvim'
 Plugin 'lervag/vimtex'
 let g:tex_flavor='latex'
-let g:vimtex_view_method='mupdf'
+let g:vimtex_view_method='skim'
 let g:vimtex_quickfix_mode=0
-set conceallevel=1
-let g:tex_conceal='abdmg'
+"let g:tex_conceal='abdmg'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -118,7 +117,9 @@ vmap j gj
 vmap k gk
 
 nnoremap H ^
-nnoremap L $
+nnoremap H ^
+vnoremap L $
+vnoremap L $
 
 nnoremap ; :
 
