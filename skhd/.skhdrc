@@ -61,6 +61,7 @@ app < s : open /Applications/Safari.app; skhd -k "escape"
 app < m : open /System/Applications/Messages.app; skhd -k "escape"
 app < d : open /Applications/Discord.app; skhd -k "escape"
 app < c : open "/Applications/Visual Studio Code.app/"; skhd -k "escape"
+app < z : open /Applications/zoom.us.app; skhd -k "escape"
 
 # skhd bypass
 :: bypass @
