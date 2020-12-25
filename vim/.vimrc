@@ -117,8 +117,8 @@ vmap j gj
 vmap k gk
 
 nnoremap H ^
-nnoremap H ^
-vnoremap L $
+nnoremap L $
+vnoremap H ^
 vnoremap L $
 
 " window movement
