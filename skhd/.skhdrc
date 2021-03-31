@@ -56,12 +56,17 @@ alt - f : yabai -m window --toggle zoom-fullscreen
 cmd - return ; app
 app < cmd - return ; default
 app < escape; default
-app < t : open /Applications/iTerm.app; skhd -k "escape"
-app < s : open /Applications/Safari.app; skhd -k "escape"
-app < m : open /System/Applications/Messages.app; skhd -k "escape"
-app < d : open /Applications/Discord.app; skhd -k "escape"
-app < c : open "/Applications/Visual Studio Code.app/"; skhd -k "escape"
-app < z : open /Applications/zoom.us.app; skhd -k "escape"
+app < t : open /Applications/iTerm.app; default
+app < s : open /Applications/Safari.app; default
+app < m : open /System/Applications/Messages.app; default
+app < d : open /Applications/Discord.app; default
+app < c : open "/Applications/Visual Studio Code.app/"; default
+app < z : open /Applications/zoom.us.app; default
+app < p : open /System/Applications/Preview.app; default
+app < b : open /System/Applications/Books.app; default
+app < f : open /Applications/Firefox.app; default
+# -- hypermode app binds -- #
+app < shift - m : open /System/Applications/Music.app; default
 
 # skhd bypass
 :: bypass @
