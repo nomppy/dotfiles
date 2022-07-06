@@ -1,3 +1,7 @@
 [user]
 	name = Kenneth Sun
 	email = kenhtsun@gmail.com
+[pull]
+	ff = only
+[init]
+	defaultBranch = main

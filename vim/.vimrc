@@ -1,5 +1,6 @@
 let mapleader=","
 set nocompatible              " be iMproved, required
+set updatetime=100
 set number relativenumber
 filetype off                  " required
 syntax on
@@ -11,68 +12,50 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
+
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'arcticicestudio/nord-vim'
-
+" Utility
 Plugin 'easymotion/vim-easymotion'
-
 Plugin 'preservim/nerdtree'
-let NERDTreeShowHidden=1
-let NERDTreeAutoDeleteBuffer=1
-let NERDTreeMinimalUI=1
-let NERDTreeDirArrows=1
-map <Leader>n :NERDTreeToggle<CR>
+Plugin 'scrooloose/nerdtree-project-plugin'
+Plugin 'xuyuanp/nerdtree-git-plugin'
+Plugin 'ryanoasis/vim-devicons'
 
-" fuzzy search thing
+" Programming Support
 Plugin 'preservim/nerdcommenter'
+Plugin 'neoclide/coc.nvim'
+Plugin 'maxmellon/vim-jsx-pretty'
 
-" AIRLINE 
+" Git
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+
+" Aesthetics
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-let g:airline_powerline_fonts=1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-
+Plugin 'arcticicestudio/nord-vim'
 Plugin 'yggdroot/indentline'
-let g:indentLine_char='| '
-
-Plugin 'junegunn/goyo.vim'
-nnoremap <Leader>g :Goyo<CR>
-
-Plugin 'SirVer/ultisnips'
-let g:UltiSnipsExpandTrigger='<tab>'
-let g:UltiSnipsForwardTrigger='<tab>'
-let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
-
-Plugin 'honza/vim-snippets'
-
-Plugin 'neoclide/coc.nvim'
-Plugin 'lervag/vimtex'
-let g:tex_flavor='latex'
-let g:vimtex_view_method='skim'
-let g:vimtex_quickfix_mode=0
-"let g:tex_conceal='abdmg'
-
-" All of your Plugins must be added before the following line
 call vundle#end()            " required
 
 colorscheme nord
 
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+""""""""""""""""""""""""""""""
+" Configuration Section
+""""""""""""""""""""""""""""""
 
-" No swap
+" NERDTree config
+let NERDTreeShowHidden=1
+let NERDTreeAutoDeleteBuffer=1
+let NERDTreeMinimalUI=1
+let NERDTreeDirArrows=1
+autocmd VimEnter * NERDTree | wincmd p
+
+" Vim-Airline Configuration
+let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:indentLine_char='| '
 
 set noswapfile
 set nobackup
@@ -87,30 +70,40 @@ if has('persistent_undo')
 endif
 
 " indentation
+filetype plugin indent on    " required
 set autoindent
 set smartindent
 set smarttab
+
+au BufNewFile, BufRead *.py
+  \ set tabstop=4 |
+  \ set softtabstop=4 |
+  \ set shiftwidth=4 |
+  \ set textwidth=79 |
+  \ set expandtab |
+  \ set autoindent |
+  \ set fileformat=unix
+
 set tabstop=8
 set softtabstop=2
 set shiftwidth=2
 set expandtab
 
-" Auto indent pasted text
-nnoremap p p=`]<C-o>
-nnoremap P P=`]<C-o>
-
 " Better search
 set hlsearch
 set incsearch
 
-" spellcheck
+" Spell Check
 setlocal spell
 set spelllang=en
-inoremap <c-l> <c-g>u<Esc>[s1z=`]a<c-g>u 
 
 set scrolloff=5 " Keep 5 lines above and below cursor
 
-" move normally between wrapped lines
+""""""""""""""""""""""""""""""
+" Mappings
+""""""""""""""""""""""""""""""
+
+" Re-map normal movement
 nmap j gj
 nmap k gk
 vmap j gj
@@ -121,30 +114,38 @@ nnoremap L $
 vnoremap H ^
 vnoremap L $
 
-" window movement
-nnoremap <Leader>wH :wincmd H<CR>
-nnoremap <Leader>wJ :wincmd J<CR>
-nnoremap <Leader>wL :wincmd L<CR>
-nnoremap <Leader>wK :wincmd K<CR>
+" Window Navigation
+nnoremap q :q<CR>
 
-" moving focus
-nnoremap <Leader>wh :wincmd h<CR>
-nnoremap <Leader>wl :wincmd l<CR>
-nnoremap <Leader>wj :wincmd j<CR>
-nnoremap <Leader>wk :wincmd k<CR>
+" Buffer Navigation
+nnoremap Q :bd!<CR>
+nnoremap <Leader>b :ls<CR>:b
+nmap <C-b>j :bn!<CR>
+nmap <C-b>k :bp!<CR>
 
-" resizing window
-nnoremap <Leader>w= :wincmd =<CR>
-nnoremap <Leader>w- :wincmd resize -
-nnoremap <Leader>w+ :wincmd resize +
-" previous window
-nnoremap <Leader>w<Tab> :wincmd p<CR> 
+" Tab Navigation
+nnoremap <C-t>l :tabn<CR>
+nnoremap <C-t>n :tabs:tab<Space>
+nnoremap <C-t>t :tabnew<CR>
+nnoremap <C-t>h :tabp<CR>
+nnoremap <C-t>x :tabc<CR>
 
-" other window commands
-nnoremap <Leader>w  :wincmd<space>
+" NERDTree Mappings
+nnoremap <Leader>nt :NERDTreeToggle<CR>
+nnoremap <Leader>nf :NERDTreeFind<CR>
+nnoremap <Leader>nc :NERDTreeCWD<CR>
 
-nnoremap <Leader>fw :FixWhiteSpace<CR>
+" Search
+nnoremap <F3> :let @/ = ""<CR>
+
+" Spell Check
+inoremap <c-l> <c-g>u<Esc>[s1z=`]a<c-g>u 
+
+" Git gutter mappings
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
+
+" Misc.
 nnoremap ; :
-
 nmap <Leader>s :write<CR>
 nmap <Leader>r :redraw!<CR>

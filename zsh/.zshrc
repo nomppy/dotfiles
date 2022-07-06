@@ -1,6 +1,7 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
+# dwadwa
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -58,9 +59,10 @@ setopt promptsubst
 alias af="alias-finder"
 alias afl="alias-finder -l"
 alias afe="alias-finder -e"
-alias v="vim"
+alias v="nvim"
 alias q="exit"
 alias mupdf="mupdf-gl"
+alias vlc="/Applications/VLC.app/Contents/MacOS/VLC"
 
 alias -g @G='| grep'
 alias -g @L='| less'
@@ -69,8 +71,12 @@ alias -g @S='>/dev/null'
 alias -g @H='| head'
 alias -g @T='| tail'
 
+alias lfc="~/code/lfc/; code ./; yarn dev"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 wd() {
   . /Users/kenneth/bin/wd/wd.sh
 }
+
+export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
