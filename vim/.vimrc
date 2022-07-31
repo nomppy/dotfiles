@@ -31,7 +31,6 @@ Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 
-" Aesthetics
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'arcticicestudio/nord-vim'
@@ -136,7 +135,7 @@ nnoremap <Leader>nf :NERDTreeFind<CR>
 nnoremap <Leader>nc :NERDTreeCWD<CR>
 
 " Search
-nnoremap <F3> :let @/ = ""<CR>
+nnoremap <F9> :let @/ = ""<CR>
 
 " Spell Check
 inoremap <c-l> <c-g>u<Esc>[s1z=`]a<c-g>u 

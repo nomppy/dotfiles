@@ -44,7 +44,7 @@ lctrl + alt - l : \
     yabai -m window --resize right:20:0 ; \
     yabai -m window --resize left:20:0
 
-lctrl + alt - 0 : yabai -m space --balance
+lctrl + alt - = : yabai -m space --balance
 
 # 4 corners
 shift + alt - f : yabai -m window --grid 2:2:0:0:1:1
@@ -70,17 +70,18 @@ app < d : open /Applications/Discord.app; skhd -k "escape"
 app < c : open "/Applications/Visual Studio Code.app/"; skhd -k "escape"
 app < z : open /Applications/zoom.us.app; skhd -k "escape"
 app < p : open /System/Applications/Preview.app; skhd -k "escape"
-app < b : open /System/Applications/Books.app; skhd -k "escape"
 app < f : open /Applications/Firefox.app; skhd -k "escape"
 app < w : open /Applications/WhatsApp.app; skhd -k "escape"
 app < n : open /Applications/Notion.app; skhd -k "escape"
+app < b : open /Applications/Obsidian.app; skhd -k "escape"
 
 # -- hypermode app binds -- #
 app < shift - m : open /System/Applications/Messenger.app; skhd -k "escape"
 app < shift - t : open /Applications/Todoist.app; skhd -k "escape"
-app < shift - c : open Safari https://calendar.google.com; skhd -k "escape"
+app < shift - c : open -a Safari https://calendar.google.com; skhd -k "escape"
 app < shift - n : open /System/Applications/Notes.app; skhd -k "escape"
 app < shift - s : open /Applications/Spotify.app; skhd -k "escape"
+app < shift - b : open /System/Applications/Books.app; skhd -k "escape"
 
 # -- "O"ffice / work mode -- #
 :: office @
@@ -88,7 +89,7 @@ app < o ; office
 office < escape; default
 office < w : open "/Applications/Microsoft Word.app"; skhd -k "escape"
 office < e : open "/Applications/Microsoft Excel.app"; skhd -k "escape"
-office < o : open "/Applications/Microsoft Outlook.app"; skhd -k "escape"
+office < o : open -a Safari https://outlook.office.com; skhd -k "escape"
 
 # skhd bypass
 :: bypass @
