@@ -61,7 +61,7 @@ alt - f : yabai -m window --toggle zoom-fullscreen
 
 # app binds
 :: app @ 
-cmd - return ; app
+cmd - 0x2A; app
 app < escape ; default
 app < t : open /Applications/iTerm.app; skhd -k "escape"
 app < s : open /Applications/Safari.app; skhd -k "escape"
@@ -78,7 +78,8 @@ app < b : open /Applications/Obsidian.app; skhd -k "escape"
 # -- hypermode app binds -- #
 app < shift - m : open /System/Applications/Messenger.app; skhd -k "escape"
 app < shift - t : open /Applications/Todoist.app; skhd -k "escape"
-app < shift - c : open -a Safari https://calendar.google.com; skhd -k "escape"
+# app < shift - c : open -a Safari https://calendar.google.com; skhd -k "escape"
+app < shift - c : open /Applications/Fantastical.app; skhd -k "escape"
 app < shift - n : open /System/Applications/Notes.app; skhd -k "escape"
 app < shift - s : open /Applications/Spotify.app; skhd -k "escape"
 app < shift - b : open /System/Applications/Books.app; skhd -k "escape"

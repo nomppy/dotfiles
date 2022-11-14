@@ -7,6 +7,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 export PATH="${PATH}:${HOME}/.local/bin/"
+export PATH="${PATH}:${HOME}/.emacs.d/bin/"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/kenneth/.oh-my-zsh"
