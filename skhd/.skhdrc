@@ -74,12 +74,13 @@ app < f : open /Applications/Firefox.app; skhd -k "escape"
 app < w : open /Applications/WhatsApp.app; skhd -k "escape"
 app < n : open /Applications/Notion.app; skhd -k "escape"
 app < b : open /Applications/Obsidian.app; skhd -k "escape"
+app < e : open /Applications/Emacs.app; skhd -k "escape"
 
 # -- hypermode app binds -- #
-app < shift - m : open /System/Applications/Messenger.app; skhd -k "escape"
+app < shift - m : open -a Safari https://mail.google.com; skhd -k "escape"
 app < shift - t : open /Applications/Todoist.app; skhd -k "escape"
-# app < shift - c : open -a Safari https://calendar.google.com; skhd -k "escape"
-app < shift - c : open /Applications/Fantastical.app; skhd -k "escape"
+app < shift - c : open -a Safari https://calendar.google.com; skhd -k "escape"
+# app < shift - c : open /Applications/Fantastical.app; skhd -k "escape"
 app < shift - n : open /System/Applications/Notes.app; skhd -k "escape"
 app < shift - s : open /Applications/Spotify.app; skhd -k "escape"
 app < shift - b : open /System/Applications/Books.app; skhd -k "escape"
@@ -91,9 +92,10 @@ office < escape; default
 office < w : open "/Applications/Microsoft Word.app"; skhd -k "escape"
 office < e : open "/Applications/Microsoft Excel.app"; skhd -k "escape"
 office < o : open -a Safari https://outlook.office.com; skhd -k "escape"
+office < s : open "/Applications/Slack.app"; skhd -k "escape"
 
-# skhd bypass
-:: bypass @
-shift + alt + cmd - return; bypass
-bypass < shift + alt + cmd - return; default
-bypass < escape; default
+# skhd passthrough
+:: passthrough
+shift + alt + cmd - return; passthrough
+passthrough < shift + alt + cmd - return; default
+
