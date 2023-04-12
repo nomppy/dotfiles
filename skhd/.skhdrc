@@ -62,39 +62,56 @@ shift + ctrl + alt - u : yabai -m window --opacity 1.0 --layer above
 shift + ctrl + alt - j : yabai -m window --opacity 0.0 --layer normal
 
 # app binds
-:: app @ 
+# keys: https://github.com/koekeishiya/skhd/issues/1
+# can also use `skhd -o` to capture and display keycodes
+
+:: app @
 cmd - 0x2A; app
 app < escape ; default
-app < t : open /Applications/iTerm.app; skhd -k "escape"
-app < s : open /Applications/Safari.app; skhd -k "escape"
-app < m : open /System/Applications/Messages.app; skhd -k "escape"
-app < d : open /Applications/Discord.app; skhd -k "escape"
-app < c : open "/Applications/Visual Studio Code.app/"; skhd -k "escape"
-app < z : open /Applications/zoom.us.app; skhd -k "escape"
-app < p : open /System/Applications/Preview.app; skhd -k "escape"
-app < f : open /Applications/Firefox.app; skhd -k "escape"
-app < w : open /Applications/WhatsApp.app; skhd -k "escape"
-app < n : open /Applications/Notion.app; skhd -k "escape"
-app < b : open /Applications/Obsidian.app; skhd -k "escape"
-app < e : open /Applications/Emacs.app; skhd -k "escape"
+app < space ; default
+app < 0x32 : yabai -m window recent --focus;
+app < t : open /Applications/iTerm.app;
+app < s : open /Applications/Safari.app;
+app < m : open /System/Applications/Messages.app;
+app < d : open /Applications/Discord.app;
+app < c : open "/Applications/Visual Studio Code.app/";
+app < z : open /Applications/zoom.us.app;
+app < p : open /System/Applications/Preview.app;
+app < f : open /Applications/Firefox.app;
+app < w : open /Applications/WhatsApp.app;
+app < n : open /Applications/Notion.app;
+app < b : open /Applications/Obsidian.app;
+app < e : open /Applications/Emacs.app;
 
-# -- hypermode app binds -- #
-app < shift - m : open -a Safari https://mail.google.com; skhd -k "escape"
-app < shift - t : open /Applications/Todoist.app; skhd -k "escape"
-app < shift - c : open -a Safari https://calendar.google.com; skhd -k "escape"
-# app < shift - c : open /Applications/Fantastical.app; skhd -k "escape"
-app < shift - n : open /System/Applications/Notes.app; skhd -k "escape"
-app < shift - s : open /Applications/Spotify.app; skhd -k "escape"
-app < shift - b : open /System/Applications/Books.app; skhd -k "escape"
+app < shift - m : open -a Safari https://mail.google.com;
+app < shift - t : open /Applications/Todoist.app;
+app < shift - c : open -a Safari https://calendar.google.com;
+app < shift - n : open /System/Applications/Notes.app;
+app < shift - s : open /Applications/Spotify.app;
+app < shift - b : open /System/Applications/Books.app;
+
+:: send @
+app < 0x2A ; send
+send < escape ; default
+send < space ; app
+send < 1 : yabai -m window --space 1;
+send < 2 : yabai -m window --space 2;
+send < 3 : yabai -m window --space 3;
+send < 4 : yabai -m window --space 4;
+send < 5 : yabai -m window --space 5;
+send < 6 : yabai -m window --space 6;
+send < 7 : yabai -m window --space 7;
+# send < 1 :
 
 # -- "O"ffice / work mode -- #
 :: office @
 app < o ; office  
 office < escape; default
-office < w : open "/Applications/Microsoft Word.app"; skhd -k "escape"
-office < e : open "/Applications/Microsoft Excel.app"; skhd -k "escape"
-office < o : open -a Safari https://outlook.office.com; skhd -k "escape"
-office < s : open "/Applications/Slack.app"; skhd -k "escape"
+office < space; default
+office < w : open "/Applications/Microsoft Word.app";
+office < e : open "/Applications/Microsoft Excel.app";
+office < o : open -a Safari https://outlook.office.com;
+office < s : open "/Applications/Slack.app";
 
 # skhd passthrough
 :: passthrough
