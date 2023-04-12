@@ -58,6 +58,8 @@ shift + alt - c : yabai -m window --grid 5:5:1:1:3:3
 shift + alt - e : yabai -m window --toggle split
 alt - p : yabai -m window --toggle zoom-parent
 alt - f : yabai -m window --toggle zoom-fullscreen
+shift + ctrl + alt - u : yabai -m window --opacity 1.0 --layer above
+shift + ctrl + alt - j : yabai -m window --opacity 0.0 --layer normal
 
 # app binds
 :: app @ 
@@ -98,4 +100,3 @@ office < s : open "/Applications/Slack.app"; skhd -k "escape"
 :: passthrough
 shift + alt + cmd - return; passthrough
 passthrough < shift + alt + cmd - return; default
-
