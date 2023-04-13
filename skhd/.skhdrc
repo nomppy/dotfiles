@@ -69,6 +69,7 @@ shift + ctrl + alt - j : yabai -m window --opacity 0.0 --layer normal
 cmd - 0x2A; app
 app < escape ; default
 app < space ; default
+
 app < 0x32 : yabai -m window recent --focus;
 app < t : open /Applications/iTerm.app;
 app < s : open /Applications/Safari.app;
