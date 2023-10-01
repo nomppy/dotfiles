@@ -8,6 +8,7 @@ fi
 
 export PATH="${PATH}:${HOME}/.local/bin/"
 export PATH="${PATH}:${HOME}/.emacs.d/bin/"
+export DBUS_SESSION_BUS_ADDRESS="unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET" 
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/kenneth/.oh-my-zsh"
@@ -97,3 +98,4 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+export PATH=$PATH:/Users/kenneth/.spicetify

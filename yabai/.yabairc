@@ -10,8 +10,13 @@
 # see this wiki page for information:
 #  - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)
 #
-sudo yabai --load-sa
+# sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
+
+# sketchybar
+yabai -m signal --add event=window_created action="sketchybar --trigger windows_on_spaces"
+yabai -m signal --add event=window_destroyed action="sketchybar --trigger windows_on_spaces"
 
 # documentation https://github.com/koekeishiya/yabai/blob/master/doc/yabai.asciidoc#display
 # global settings
@@ -25,12 +30,11 @@ yabai -m config window_opacity_duration      0.03
 yabai -m config active_window_opacity        0.97
 yabai -m config normal_window_opacity        0.93
 
-yabai -m config window_border                off
-yabai -m config window_border_blur           on
-yabai -m config window_border_width          6
-yabai -m config window_border_radius         10
-yabai -m config active_window_border_color   0x00775759
-yabai -m config normal_window_border_color   0x00505050
+yabai -m config window_border                on
+yabai -m config window_border_width          2
+yabai -m config window_border_radius         11
+yabai -m config active_window_border_color   0xffe1e3e4
+yabai -m config normal_window_border_color   0xff2a2f38
 yabai -m config insert_feedback_color        0xffd75f5f
 
 yabai -m config split_ratio                  0.61803
@@ -42,26 +46,25 @@ yabai -m config mouse_drop_action            swap
 
 # general space settings
 yabai -m config layout                       bsp
-yabai -m config external_bar                 all:36:0
-# yabai -m config top_padding                  0
-# yabai -m config bottom_padding               0
-# yabai -m config left_padding                 0
-# yabai -m config right_padding                0
-yabai -m config window_gap                   6
-# yabai -m config external_bar                 all:28:0
-yabai -m config top_padding                  8
-yabai -m config bottom_padding               8
-yabai -m config left_padding                 8
-yabai -m config right_padding                8
-# yabai -m config window_gap                   8
+yabai -m config external_bar                 all:48:0
+yabai -m config window_gap                   10
+yabai -m config top_padding                  10
+yabai -m config bottom_padding               10
+yabai -m config left_padding                 10
+yabai -m config right_padding                10
 
 # space-specific configs
 yabai -m space first --padding               rel:10:10:10:10
-yabai -m space first --gap                   abs:20
+yabai -m space first --layout                float
 
 # global rules
-yabai -m rule --add label="Settings" app="^System Preferences$" manage=off sticky=on opacity=1
-yabai -m rule --add label="Spotify" app="^Spotify$" space=first
-yabai -m rule --add label="Messages" app="^Messages$" space=first
+yabai -m rule --add label="Settings" app="^System Preferences$" manage=off sticky=on opacity=1 layer=above
+yabai -m rule --add app="^(LuLu|Vimac|Calculator|Software Update|Dictionary|VLC|System Preferences|System Settings|zoom.us|Photo Booth|Archive Utility|Python|LibreOffice|App Store|Steam Helper|Alfred|Activity Monitor)$" manage=off
+yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
+yabai -m rule --add label="Quicktime" app="^QuickTime Player$" opacity=1 manage=off layer=above
+yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
+yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
+yabai -m rule --add label="Spotify" app="^Spotify$" space=first grid=5:37:1:0:20:4
+yabai -m rule --add label="Messages" app="^Messages$" space=first opacity=1 grid=5:37:22:1:37:5
 
 echo "yabai configuration loaded.."
