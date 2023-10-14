@@ -8,7 +8,9 @@ fi
 
 export PATH="${PATH}:${HOME}/.local/bin/"
 export PATH="${PATH}:${HOME}/.emacs.d/bin/"
+export PATH=/opt/homebrew/bin:$PATH
 export DBUS_SESSION_BUS_ADDRESS="unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET" 
+eval "$(rbenv init - zsh)"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/kenneth/.oh-my-zsh"
@@ -81,8 +83,6 @@ wd() {
   . /Users/kenneth/bin/wd/wd.sh
 }
 
-export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/kenneth/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -97,5 +97,4 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
-export PATH=$PATH:/Users/kenneth/.spicetify
+#

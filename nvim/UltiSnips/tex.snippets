@@ -104,10 +104,14 @@ snippet enum "Enumerate" bA
 \end{enumerate}
 endsnippet
 
-snippet item "Itemize" bA
+snippet itemize "Itemize" bA
 \begin{itemize}
-	\item $0
+	\item $0 \\\\
 \end{itemize}
+endsnippet
+
+snippet item "Item" b
+\item $0 \\\\
 endsnippet
 
 snippet desc "Description" b
@@ -152,6 +156,12 @@ snippet al "Align" bA
 \begin{align*}
 	${1:${VISUAL}}
 .\end{align*}
+endsnippet
+
+snippet pf. "Proof" bA
+\begin{proof}
+	$0
+\end{proof}
 endsnippet
 
 snippet aln "Align with number" bA
@@ -365,12 +375,12 @@ snippet par "partial" w
 endsnippet
 
 context "math()"
-snippet sq "\sqrt{}" iA
+snippet sr "\sqrt{}" iA
 \sqrt{${1:${VISUAL}}} $0
 endsnippet
 
 context "math()"
-snippet sr "^2" iA
+snippet sq "^2" iA
 ^2
 endsnippet
 
@@ -593,6 +603,11 @@ snippet sim "~" iA
 endsnippet
 
 context "math()"
+snippet iso "isomorphic to" iA
+\simeq
+endsnippet
+
+context "math()"
 snippet set "set" wA
 \\{$1\\} $0
 endsnippet
@@ -605,14 +620,15 @@ endsnippet
 
 context "math()"
 snippet sub "subset" Ai
-\subset 
+\subseteq
 endsnippet
 
 context "math()"
 snippet psub "proper subset" Ai
-\subseteq 
+\subset
 endsnippet
 
+context "math()"
 snippet nin "not in " iA
 \not\in 
 endsnippet
@@ -622,11 +638,13 @@ snippet inn "in " iA
 \in 
 endsnippet
 
-snippet Nn "cap" iA
+context "math()"
+snippet cap "cap" iA
 \cap 
 endsnippet
 
-snippet UU "cup" iA
+context "math()"
+snippet cup "cup" iA
 \cup 
 endsnippet
 
