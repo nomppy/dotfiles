@@ -62,7 +62,7 @@ alt - p : yabai -m window --toggle zoom-parent
 alt - f : yabai -m window --toggle zoom-fullscreen
 
 shift + ctrl + alt - u : yabai -m window --opacity 1.0 --layer above
-shift + ctrl + alt - j : yabai -m window --opacity 0.0 --layer normal
+shift + ctrl + alt - j : yabai -m window --opacity 0.0 --layer below
 shift + ctrl + alt - s : yabai -m window --toggle sticky
 shift + ctrl + alt - p : yabai -m window --toggle pip --toggle sticky
 
