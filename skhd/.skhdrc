@@ -61,7 +61,7 @@ shift + alt - e : yabai -m window --toggle split
 alt - p : yabai -m window --toggle zoom-parent
 alt - f : yabai -m window --toggle zoom-fullscreen
 
-shift + ctrl + alt - u : yabai -m window --opacity 1.0 --layer above
+shift + ctrl + alt - k : yabai -m window --opacity 1.0 --layer above
 shift + ctrl + alt - j : yabai -m window --opacity 0.0 --layer below
 shift + ctrl + alt - s : yabai -m window --toggle sticky
 shift + ctrl + alt - p : yabai -m window --toggle pip --toggle sticky
@@ -70,7 +70,9 @@ shift + ctrl + alt - p : yabai -m window --toggle pip --toggle sticky
 # keys: https://github.com/koekeishiya/skhd/issues/1
 # can also use `skhd -o` to capture and display keycodes
 
-:: app @
+:: default : ~/Library/Application\ Support/Übersicht/widgets/simple-bar/lib/scripts/yabai-set-mode.sh default
+
+:: app @ : ~/Library/Application\ Support/Übersicht/widgets/simple-bar/lib/scripts/yabai-set-mode.sh a magenta
 cmd - 0x2A; app
 app < escape ; default
 app < space ; default
@@ -113,7 +115,7 @@ app < shift - 6 : yabai -m space --focus 6;
 app < shift - 7 : yabai -m space --focus 7;
 
 # -- "O"ffice / work mode -- #
-:: office @
+:: office @ : ~/Library/Application\ Support/Übersicht/widgets/simple-bar/lib/scripts/yabai-set-mode.sh o orange
 app < o ; office  
 office < escape; default
 office < space; app
@@ -124,6 +126,6 @@ office < s : open "/Applications/Slack.app";
 office < t : open "/Applications/Microsoft Teams.app";
 
 # skhd passthrough
-:: passthrough
+:: passthrough : ~/Library/Application\ Support/Übersicht/widgets/simple-bar/lib/scripts/yabai-set-mode.sh P red
 shift + alt + cmd - return; passthrough
 passthrough < shift + alt + cmd - return; default

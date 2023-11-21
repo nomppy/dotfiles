@@ -11,6 +11,22 @@ end: $5
 $0
 endsnippet
 
+snippet img "article image" iw
+
+<article-image src='$1' alt='$2'> </article-image>
+<div class='img-caption'> $3 </div>
+
+$0
+endsnippet
+
+snippet -- "en-dash" iA
+–
+endsnippet
+
+snippet - "em-dash" i
+—
+endsnippet
+
 ###########################
 # Sections and Paragraphs #
 ###########################
@@ -66,9 +82,9 @@ snippet link "Link to something"
 [${1:${VISUAL:Text}}](${3:https://${2:www.url.com}})$0
 endsnippet
 
-snippet img "Image"
-![${1:pic alt}](${2:path}${3/.+/ "/}${3:opt title}${3/.+/"/})$0
-endsnippet
+#snippet img "Image"
+#![${1:pic alt}](${2:path}${3/.+/ "/}${3:opt title}${3/.+/"/})$0
+#endsnippet
 
 snippet ilc "Inline Code" i
 \`${1:${VISUAL}}\`$0

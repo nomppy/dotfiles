@@ -6,6 +6,15 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+#if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+  #eval "$(oh-my-posh init zsh)"
+#fi
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+#export NODE_OPTIONS=--openssl-legacy-provider
+
+export EDITOR="$(which nvim)"
 export PATH="${PATH}:${HOME}/.local/bin/"
 export PATH="${PATH}:${HOME}/.emacs.d/bin/"
 export PATH=/opt/homebrew/bin:$PATH
@@ -64,9 +73,8 @@ alias af="alias-finder"
 alias afl="alias-finder -l"
 alias afe="alias-finder -e"
 alias v="nvim"
+alias m="neomutt"
 alias q="exit"
-alias mupdf="mupdf-gl"
-alias vlc="/Applications/VLC.app/Contents/MacOS/VLC"
 
 alias -g @G='| grep'
 alias -g @L='| less'
@@ -98,3 +106,7 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 #
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

@@ -33,7 +33,7 @@ def create_matrix(snip):
 
                 final_str += " \\\\\\\n"
 
-        final_str += old_spacing + "\\end{"+matrix_str+"}\n$0"
+        final_str += old_spacing + "\\end{"+matrix_str+"}$0"
 
         snip.expand_anon(final_str)
 endglobal
@@ -292,7 +292,7 @@ endsnippet
 
 priority 1000
 pre_expand "create_matrix(snip)"
-snippet "(small|[bBpvV])?mat(rix)? (\d+)x(\d+)" "Generate (small|[bBpvV])?matrix of *rows* by *columns*" brA
+snippet "(small|[bBpvV])?mat(rix)? (\d+)x(\d+)" "Generate (small|[bBpvV])?matrix of *rows* by *columns*" rA
 endsnippet
 
 snippet pmat "pmat" i
@@ -335,6 +335,11 @@ endsnippet
 context "math()"
 snippet lra "leftangle rightangle" iA
 \left<${1:${VISUAL}} \right>$0
+endsnippet
+
+context "math()"
+snippet lr< "leftangle rightangle" iA
+\langle $1 \rangle $0
 endsnippet
 
 context "math()"
@@ -502,24 +507,30 @@ endsnippet
 
 context "math()"
 snippet nabl "nabla" iA
-\nabla 
+\nabla $0
 endsnippet
 
 priority 99
 context "math()"
 snippet times "times" iA
-\times 
+\times $0
 endsnippet
 
 priority 100
 context "math()"
-snippet rtimes "semi times" iA
-\rtimes
+snippet lfish "right semi times" iA
+\rtimes $0
+endsnippet
+
+priority 100
+context "math()"
+snippet rfish "left semi times" iA
+\ltimes $0
 endsnippet
 
 priority 100
 snippet ** "cdot" iA
-\cdot 
+\cdot $0
 endsnippet
 
 context "math()"
@@ -599,12 +610,12 @@ endsnippet
 
 context "math()"
 snippet sim "~" iA
-\sim 
+\sim $0
 endsnippet
 
 context "math()"
 snippet iso "isomorphic to" iA
-\simeq
+\simeq $0
 endsnippet
 
 context "math()"
@@ -614,38 +625,38 @@ endsnippet
 
 context "math()"
 snippet || "mid" iA
-\mid 
+\mid $0
 endsnippet
 
 
 context "math()"
 snippet sub "subset" Ai
-\subseteq
+\subseteq $0
 endsnippet
 
 context "math()"
 snippet psub "proper subset" Ai
-\subset
+\subset $0
 endsnippet
 
 context "math()"
 snippet nin "not in " iA
-\not\in 
+\not\in $0
 endsnippet
 
 context "math()"
 snippet inn "in " iA
-\in 
+\in $0
 endsnippet
 
 context "math()"
 snippet cap "cap" iA
-\cap 
+\cap $0
 endsnippet
 
 context "math()"
 snippet cup "cup" iA
-\cup 
+\cup $0
 endsnippet
 
 snippet uuu "bigcup" iA
@@ -682,12 +693,17 @@ endsnippet
 
 context "math()"
 snippet <! "normal subgroup" iA
-\unhld
+\trianglelefteq 
 endsnippet
-# \triangleleft 
 
+context "math()"
 snippet <nn "normal subgroup" iA
-\unhld
+\trianglelefteq 
+endsnippet
+
+context "math()"
+snippet >nn "normal subgroup" iA
+\trianglerighteq 
 endsnippet
 
 snippet <> "hokje" iA

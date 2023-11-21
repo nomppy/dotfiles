@@ -22,6 +22,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'preservim/nerdtree'
 " Plug 'scrooloose/nerdtree-project-plugin'
 " Plug 'xuyuanp/nerdtree-git-plugin'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'liuchengxu/vim-which-key'
 
@@ -40,9 +41,9 @@ Plug 'tpope/vim-dispatch'
 
 " Programming Support
 Plug 'preservim/nerdcommenter'
-" Plug 'neoclide/coc.nvim'
+Plug 'tpope/vim-surround' 
+Plug 'neoclide/coc.nvim'
 Plug 'maxmellon/vim-jsx-pretty'
-
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -138,10 +139,10 @@ nnoremap <leader> :WhichKey ','<CR>
 set timeoutlen=500
 
 " Re-map normal movement
-nmap j gj
-nmap k gk
-vmap j gj
-vmap k gk
+"nmap j gj
+"nmap k gk
+"vmap j gj
+"vmap k gk
 
 nnoremap H ^
 nnoremap L $
