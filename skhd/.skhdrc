@@ -4,12 +4,22 @@ shift + ctrl - p : yabai -m display --focus prev
 shift + ctrl - n : yabai -m display --focus next
 
 # switch focus
-alt - j : yabai -m window --focus next || yabai -m window --focus first 
-alt - k : yabai -m window --focus prev || yabai -m window --focus last
-alt - h : yabai -m window --focus west
-alt - l : yabai -m window --focus east
+#alt - j : yabai -m window --focus next || yabai -m window --focus first 
+#alt - k : yabai -m window --focus prev || yabai -m window --focus last
+#alt - h : yabai -m window --focus west
+#alt - l : yabai -m window --focus east
+#alt - h : yabai-stack-navigator --prev
+#alt - l : yabai-stack-navigator --next
 
-# shortcuts for switching between spaces are in system preferences
+## change focused window
+alt - h : yabai3 focus west
+alt - j : yabai3 focus south
+alt - k : yabai3 focus north
+alt - l : yabai3 focus east
+alt - 0x29 : yabai -m window --focus stack.prev
+alt - 0x27 : yabai -m window --focus stack.next
+
+## shortcuts for switching between spaces are in system preferences
 
 # swap windows
 shift + cmd - h : yabai -m window --swap west
@@ -17,32 +27,51 @@ shift + cmd - j : yabai -m window --swap south
 shift + cmd - k : yabai -m window --swap north
 shift + cmd - l : yabai -m window --swap east
 
-# warp windows
-shift + alt - h : yabai -m window --warp west || yabai -m window --move rel:-25:0
-shift + alt - j : yabai -m window --warp south || yabai -m window --move rel:0:25
-shift + alt - k : yabai -m window --warp north || yabai -m window --move rel:0:-25
-shift + alt - l : yabai -m window --warp east || yabai -m window --move rel:25:0
+# move focused windows
+#shift + alt - h : yabai -m window --warp west || yabai -m window --move rel:-25:0
+#shift + alt - j : yabai -m window --warp south || yabai -m window --move rel:0:25
+#shift + alt - k : yabai -m window --warp north || yabai -m window --move rel:0:-25
+#shift + alt - l : yabai -m window --warp east || yabai -m window --move rel:25:0
+alt + shift - h : yabai3 move west || yabai -m window --move rel:-25:0
+alt + shift - j : yabai3 move south || yabai -m window --move rel:0:25
+alt + shift - k : yabai3 move north || yabai -m window --move rel:0:-25
+alt + shift - l : yabai3 move east || yabai -m window --move rel:25:0
 
-# move windows
+# move focused window to workspace
+alt + shift - 1 : yabai -m window --space 1
+alt + shift - 2 : yabai -m window --space 2
+alt + shift - 3 : yabai -m window --space 3
+alt + shift - 4 : yabai -m window --space 4
+alt + shift - 5 : yabai -m window --space 5
+alt + shift - 6 : yabai -m window --space 6
+alt + shift - 7 : yabai -m window --space 7
+alt + shift - 8 : yabai -m window --space 8
+alt + shift - 9 : yabai -m window --space 9
+
+# move windows to adjacent space
 shift + ctrl + alt - h : yabai -m window --space prev
 shift + ctrl + alt - l : yabai -m window --space next
 
-# resize windows
-lctrl + alt - h : \
-    abai -m window --resize left:-20:0 ; \
-    yabai -m window --resize right:-20:0
+# new window insertions
+alt - b : yabai -m window --insert south 
+alt - v : yabai -m window --insert east 
 
-lctrl + alt - j : \
-    yabai -m window --resize bottom:0:20 ; \
-    yabai -m window --resize top:0:20
+## resize windows
+#lctrl + alt - h : \
+    #yabai -m window --resize left:-20:0 ; \
+    #yabai -m window --resize right:-20:0
 
-lctrl + alt - k : \
-    yabai -m window --resize top:0:-20 ; \
-    yabai -m window --resize bottom:0:-20
+#lctrl + alt - j : \
+    #yabai -m window --resize bottom:0:20 ; \
+    #yabai -m window --resize top:0:20
 
-lctrl + alt - l : \
-    yabai -m window --resize right:20:0 ; \
-    yabai -m window --resize left:20:0
+#lctrl + alt - k : \
+    #yabai -m window --resize top:0:-20 ; \
+    #yabai -m window --resize bottom:0:-20
+
+#lctrl + alt - l : \
+    #yabai -m window --resize right:20:0 ; \
+    #yabai -m window --resize left:20:0
 
 lctrl + alt - 0 : yabai -m space --balance
 
@@ -72,8 +101,19 @@ shift + ctrl + alt - p : yabai -m window --toggle pip --toggle sticky
 
 :: default : ~/Library/Application\ Support/Übersicht/widgets/simple-bar/lib/scripts/yabai-set-mode.sh default
 
+# resize window mode
+:: resize @ : ~/Library/Application\ Support/Übersicht/widgets/simple-bar/lib/scripts/yabai-set-mode.sh R green
+alt - r ; resize
+resize < escape ; default
+resize < return ; default
+resize < alt - r ; default
+resize < h : yabai3 resize shrink width 96
+resize < j : yabai3 resize grow height 64
+resize < k : yabai3 resize shrink height 64
+resize < l : yabai3 resize grow width 96
+
 :: stack @ : ~/Library/Application\ Support/Übersicht/widgets/simple-bar/lib/scripts/yabai-set-mode.sh s cyan
-alt - s ; stack
+alt - s; stack
 stack < escape ; default
 stack < s : yabai -m window --insert stack; skhd -k escape
 stack < h : yabai3 stack-enter west; skhd -k escape
@@ -84,10 +124,6 @@ stack < shift - h : yabai3 stack-leave west
 stack < shift - j : yabai3 stack-leave south
 stack < shift - k : yabai3 stack-leave north
 stack < shift - l : yabai3 stack-leave east
-
-
-alt - 0x29 : yabai -m window --focus stack.prev
-alt - 0x27 : yabai -m window --focus stack.next
 
 :: app @ : ~/Library/Application\ Support/Übersicht/widgets/simple-bar/lib/scripts/yabai-set-mode.sh a magenta
 cmd - 0x2A; app

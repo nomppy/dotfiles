@@ -28,7 +28,7 @@ yabai -m config window_shadow                off
 yabai -m config window_opacity               on
 yabai -m config window_opacity_duration      0.03
 yabai -m config active_window_opacity        1.0
-yabai -m config normal_window_opacity        1.0
+yabai -m config normal_window_opacity        0.97
 
 # border options were removed in 6.0.0
 
