@@ -72,10 +72,28 @@ shift + ctrl + alt - p : yabai -m window --toggle pip --toggle sticky
 
 :: default : ~/Library/Application\ Support/Übersicht/widgets/simple-bar/lib/scripts/yabai-set-mode.sh default
 
+:: stack @ : ~/Library/Application\ Support/Übersicht/widgets/simple-bar/lib/scripts/yabai-set-mode.sh s cyan
+alt - s ; stack
+stack < escape ; default
+stack < s : yabai -m window --insert stack; skhd -k escape
+stack < h : yabai3 stack-enter west; skhd -k escape
+stack < j : yabai3 stack-enter south; skhd -k escape
+stack < k : yabai3 stack-enter north; skhd -k escape
+stack < l : yabai3 stack-enter east; skhd -k escape
+stack < shift - h : yabai3 stack-leave west
+stack < shift - j : yabai3 stack-leave south
+stack < shift - k : yabai3 stack-leave north
+stack < shift - l : yabai3 stack-leave east
+
+
+alt - 0x29 : yabai -m window --focus stack.prev
+alt - 0x27 : yabai -m window --focus stack.next
+
 :: app @ : ~/Library/Application\ Support/Übersicht/widgets/simple-bar/lib/scripts/yabai-set-mode.sh a magenta
 cmd - 0x2A; app
 app < escape ; default
 app < space ; default
+stack < s : yabai -m window --insert stack; skhd -k escape
 
 app < 0x32 : yabai -m window recent --focus;
 app < t : open /Applications/iTerm.app;
