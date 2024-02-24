@@ -42,7 +42,7 @@ Plug 'tpope/vim-dispatch'
 " Programming Support
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround' 
-Plug 'neoclide/coc.nvim'
+"Plug 'neoclide/coc.nvim'
 Plug 'maxmellon/vim-jsx-pretty'
 
 " Git

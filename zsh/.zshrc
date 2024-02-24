@@ -10,6 +10,7 @@ fi
   #eval "$(oh-my-posh init zsh)"
 #fi
 
+alias g++='g++ -std=c++20'
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 #export NODE_OPTIONS=--openssl-legacy-provider
@@ -20,6 +21,8 @@ export PATH="${PATH}:${HOME}/.emacs.d/bin/"
 export PATH=/opt/homebrew/bin:$PATH
 export DBUS_SESSION_BUS_ADDRESS="unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET" 
 eval "$(rbenv init - zsh)"
+eval $(thefuck --alias)
+#eval "$(zoxide init zsh)"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/kenneth/.oh-my-zsh"
@@ -83,7 +86,6 @@ alias -g @S='>/dev/null'
 alias -g @H='| head'
 alias -g @T='| tail'
 
-alias lfc="~/code/lfc/; code ./; yarn dev"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -110,3 +112,5 @@ unset __conda_setup
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+eval $(thefuck --alias)

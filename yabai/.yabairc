@@ -61,7 +61,7 @@ yabai -m space first --layout                float
 
 # global rules
 yabai -m rule --add label="Settings" app="^System Settings$" manage=off sticky=on opacity=1 layer=above
-yabai -m rule --add app="^(LuLu|Vimac|Calculator|Software Update|Dictionary|VLC|System Preferences|System Settings|zoom.us|Photo Booth|Archive Utility|Python|LibreOffice|App Store|Steam Helper|Alfred|Activity Monitor)$" manage=off
+yabai -m rule --add app="^(Instruments|Anki|Vimac|Calculator|Software Update|Dictionary|VLC|System Preferences|System Settings|zoom.us|Photo Booth|Archive Utility|Python|LibreOffice|App Store|Steam Helper|Alfred|Activity Monitor)$" manage=off
 yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
 yabai -m rule --add label="Quicktime" app="^QuickTime Player$" opacity=1 manage=off layer=above
 yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off

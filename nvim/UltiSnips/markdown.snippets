@@ -2,10 +2,11 @@
 snippet meta "metadata" b
 ---
 title: $1
-category: $2
-status: $3
+description: $2
+category: $3
 status: $4
-end: $5
+start: $5
+end: $6
 ---
 
 $0
@@ -19,11 +20,11 @@ snippet img "article image" iw
 $0
 endsnippet
 
-snippet -- "en-dash" iA
-–
+snippet whisp "small whisper" iw
+<small class='whisper'> $1 </small> $0
 endsnippet
 
-snippet - "em-dash" i
+snippet -- "em-dash" i
 —
 endsnippet
 

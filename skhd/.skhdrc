@@ -20,7 +20,6 @@ alt - 0x29 : yabai -m window --focus stack.prev
 alt - 0x27 : yabai -m window --focus stack.next
 
 ## shortcuts for switching between spaces are in system preferences
-
 # swap windows
 shift + cmd - h : yabai -m window --swap west
 shift + cmd - j : yabai -m window --swap south
@@ -28,14 +27,14 @@ shift + cmd - k : yabai -m window --swap north
 shift + cmd - l : yabai -m window --swap east
 
 # move focused windows
-#shift + alt - h : yabai -m window --warp west || yabai -m window --move rel:-25:0
-#shift + alt - j : yabai -m window --warp south || yabai -m window --move rel:0:25
-#shift + alt - k : yabai -m window --warp north || yabai -m window --move rel:0:-25
-#shift + alt - l : yabai -m window --warp east || yabai -m window --move rel:25:0
-alt + shift - h : yabai3 move west || yabai -m window --move rel:-25:0
-alt + shift - j : yabai3 move south || yabai -m window --move rel:0:25
-alt + shift - k : yabai3 move north || yabai -m window --move rel:0:-25
-alt + shift - l : yabai3 move east || yabai -m window --move rel:25:0
+shift + alt - h : yabai -m window --warp west || yabai -m window --move rel:-25:0
+shift + alt - j : yabai -m window --warp south || yabai -m window --move rel:0:25
+shift + alt - k : yabai -m window --warp north || yabai -m window --move rel:0:-25
+shift + alt - l : yabai -m window --warp east || yabai -m window --move rel:25:0
+#alt + shift - h : yabai3 move west || yabai -m window --move rel:-25:0
+#alt + shift - j : yabai3 move south || yabai -m window --move rel:0:25
+#alt + shift - k : yabai3 move north || yabai -m window --move rel:0:-25
+#alt + shift - l : yabai3 move east || yabai -m window --move rel:25:0
 
 # move focused window to workspace
 alt + shift - 1 : yabai -m window --space 1
@@ -76,16 +75,17 @@ alt - v : yabai -m window --insert east
 lctrl + alt - 0 : yabai -m space --balance
 
 # 4 corners
-shift + alt - f : yabai -m window --grid 2:2:0:0:1:1
-shift + alt - v : yabai -m window --grid 2:2:0:1:1:1
-shift + alt - g : yabai -m window --grid 2:2:1:0:1:1
-shift + alt - b : yabai -m window --grid 2:2:1:2:1:1
+#shift + alt - f : yabai -m window --grid 2:2:0:0:1:1
+#shift + alt - v : yabai -m window --grid 2:2:0:1:1:1
+#shift + alt - g : yabai -m window --grid 2:2:1:0:1:1
+#shift + alt - b : yabai -m window --grid 2:2:1:2:1:1
 
-# misc.
+# misc. 
 shift + alt - i : yabai -m window --toggle float
 shift + alt - c : yabai -m window --grid 5:5:1:1:3:3
-shift + alt - w : yabai -m window --grid 5:7:2:0:3:5
+shift + alt - w : yabai -m window --grid 7:7:2:0:3:7
 shift + alt - e : yabai -m window --toggle split
+shift + alt - f : yabai -m space --mirror y-axis
 
 alt - p : yabai -m window --toggle zoom-parent
 alt - f : yabai -m window --toggle zoom-fullscreen
@@ -101,16 +101,18 @@ shift + ctrl + alt - p : yabai -m window --toggle pip --toggle sticky
 
 :: default : ~/Library/Application\ Support/Übersicht/widgets/simple-bar/lib/scripts/yabai-set-mode.sh default
 
-# resize window mode
+# resize / rotate window mode
 :: resize @ : ~/Library/Application\ Support/Übersicht/widgets/simple-bar/lib/scripts/yabai-set-mode.sh R green
 alt - r ; resize
 resize < escape ; default
 resize < return ; default
+resize < space ; default
 resize < alt - r ; default
-resize < h : yabai3 resize shrink width 96
-resize < j : yabai3 resize grow height 64
-resize < k : yabai3 resize shrink height 64
-resize < l : yabai3 resize grow width 96
+resize < 0x1B : yabai3 resize shrink width 96
+resize < shift - 0x18 : yabai3 resize grow height 64
+resize < shift - 0x1B : yabai3 resize shrink height 64
+resize < 0x18 : yabai3 resize grow width 96
+resize < r : yabai -m space --rotate 90
 
 :: stack @ : ~/Library/Application\ Support/Übersicht/widgets/simple-bar/lib/scripts/yabai-set-mode.sh s cyan
 alt - s; stack
@@ -133,6 +135,7 @@ stack < s : yabai -m window --insert stack; skhd -k escape
 
 app < 0x32 : yabai -m window recent --focus;
 app < t : open /Applications/iTerm.app;
+app < w : open /Applications/Warp.app;
 app < s : open /Applications/Safari.app;
 app < m : open /System/Applications/Messages.app;
 app < d : open /Applications/Discord.app;
@@ -141,12 +144,14 @@ app < z : open /Applications/zoom.us.app;
 #app < p : open /System/Applications/Preview.app;
 app < p : open /Applications/sioyek.app;
 app < f : open /Applications/Firefox.app;
-app < n : open /Applications/Notion.app;
+#app < n : open /Applications/Notion.app;
 app < b : open /Applications/Obsidian.app;
 app < e : open /Applications/Emacs.app;
+app < a : open /Applications/Anki.app;
 
 app < shift - m : open -a Safari https://mail.google.com;
 app < shift - c : open -a Safari https://calendar.google.com;
+app < shift - p : open -a Safari https://chat.openai.com;
 app < shift - n : open /System/Applications/Notes.app;
 app < shift - w : open /Applications/WhatsApp.app;
 app < shift - s : open /Applications/Spotify.app;
@@ -173,11 +178,12 @@ app < shift - 7 : yabai -m space --focus 7;
 app < o ; office  
 office < escape; default
 office < space; app
-office < w : open "/Applications/Microsoft Word.app";
-office < e : open "/Applications/Microsoft Excel.app";
-office < o : open -a Safari https://outlook.office.com;
-office < s : open "/Applications/Slack.app";
-office < t : open "/Applications/Microsoft Teams.app";
+office < w : open "/Applications/Microsoft Word.app"; skhd -k space
+office < e : open "/Applications/Microsoft Excel.app"; skhd -k space
+office < o : open -a Safari https://outlook.office.com; skhd -k space
+office < s : open "/Applications/Slack.app"; skhd -k space
+office < m : open "/Applications/Mathematica.app"; skhd -k space
+office < t : open "/Applications/Microsoft Teams.app"; skhd -k space
 
 # skhd passthrough
 :: passthrough : ~/Library/Application\ Support/Übersicht/widgets/simple-bar/lib/scripts/yabai-set-mode.sh P red
