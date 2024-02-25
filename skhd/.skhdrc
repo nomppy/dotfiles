@@ -27,14 +27,14 @@ shift + cmd - k : yabai -m window --swap north
 shift + cmd - l : yabai -m window --swap east
 
 # move focused windows
-shift + alt - h : yabai -m window --warp west || yabai -m window --move rel:-25:0
-shift + alt - j : yabai -m window --warp south || yabai -m window --move rel:0:25
-shift + alt - k : yabai -m window --warp north || yabai -m window --move rel:0:-25
-shift + alt - l : yabai -m window --warp east || yabai -m window --move rel:25:0
-#alt + shift - h : yabai3 move west || yabai -m window --move rel:-25:0
-#alt + shift - j : yabai3 move south || yabai -m window --move rel:0:25
-#alt + shift - k : yabai3 move north || yabai -m window --move rel:0:-25
-#alt + shift - l : yabai3 move east || yabai -m window --move rel:25:0
+#shift + alt - h : yabai -m window --warp west || yabai -m window --move rel:-25:0
+#shift + alt - j : yabai -m window --warp south || yabai -m window --move rel:0:25
+#shift + alt - k : yabai -m window --warp north || yabai -m window --move rel:0:-25
+#shift + alt - l : yabai -m window --warp east || yabai -m window --move rel:25:0
+alt + shift - h : yabai3 move west || yabai -m window --move rel:-25:0
+alt + shift - j : yabai3 move south || yabai -m window --move rel:0:25
+alt + shift - k : yabai3 move north || yabai -m window --move rel:0:-25
+alt + shift - l : yabai3 move east || yabai -m window --move rel:25:0
 
 # move focused window to workspace
 alt + shift - 1 : yabai -m window --space 1
@@ -54,23 +54,6 @@ shift + ctrl + alt - l : yabai -m window --space next
 # new window insertions
 alt - b : yabai -m window --insert south 
 alt - v : yabai -m window --insert east 
-
-## resize windows
-#lctrl + alt - h : \
-    #yabai -m window --resize left:-20:0 ; \
-    #yabai -m window --resize right:-20:0
-
-#lctrl + alt - j : \
-    #yabai -m window --resize bottom:0:20 ; \
-    #yabai -m window --resize top:0:20
-
-#lctrl + alt - k : \
-    #yabai -m window --resize top:0:-20 ; \
-    #yabai -m window --resize bottom:0:-20
-
-#lctrl + alt - l : \
-    #yabai -m window --resize right:20:0 ; \
-    #yabai -m window --resize left:20:0
 
 lctrl + alt - 0 : yabai -m space --balance
 
@@ -108,6 +91,7 @@ resize < escape ; default
 resize < return ; default
 resize < space ; default
 resize < alt - r ; default
+resize < e : yabai -m window --toggle split
 resize < 0x1B : yabai3 resize shrink width 96
 resize < shift - 0x18 : yabai3 resize grow height 64
 resize < shift - 0x1B : yabai3 resize shrink height 64
@@ -147,8 +131,9 @@ app < f : open /Applications/Firefox.app;
 #app < n : open /Applications/Notion.app;
 app < b : open /Applications/Obsidian.app;
 app < e : open /Applications/Emacs.app;
-app < a : open /Applications/Anki.app;
+app < a : open /Applications/Arc.app;
 
+app < shift - a : open /Applications/Anki.app;
 app < shift - m : open -a Safari https://mail.google.com;
 app < shift - c : open -a Safari https://calendar.google.com;
 app < shift - p : open -a Safari https://chat.openai.com;
