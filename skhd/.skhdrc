@@ -92,10 +92,10 @@ resize < return ; default
 resize < space ; default
 resize < alt - r ; default
 resize < e : yabai -m window --toggle split
-resize < 0x1B : yabai3 resize shrink width 96
-resize < shift - 0x18 : yabai3 resize grow height 64
-resize < shift - 0x1B : yabai3 resize shrink height 64
-resize < 0x18 : yabai3 resize grow width 96
+resize < 0x1B : yabai3 resize shrink width 0.05
+resize < shift - 0x18 : yabai3 resize grow height 0.05
+resize < shift - 0x1B : yabai3 resize shrink height 0.05
+resize < 0x18 : yabai3 resize grow width 0.05
 resize < r : yabai -m space --rotate 90
 
 :: stack @ : ~/Library/Application\ Support/Übersicht/widgets/simple-bar/lib/scripts/yabai-set-mode.sh s cyan
@@ -134,9 +134,9 @@ app < e : open /Applications/Emacs.app;
 app < a : open /Applications/Arc.app;
 
 app < shift - a : open /Applications/Anki.app;
-app < shift - m : open -a Safari https://mail.google.com;
-app < shift - c : open -a Safari https://calendar.google.com;
-app < shift - p : open -a Safari https://chat.openai.com;
+app < shift - m : open https://mail.google.com;
+app < shift - c : open https://calendar.google.com;
+app < shift - p : open https://chat.openai.com;
 app < shift - n : open /System/Applications/Notes.app;
 app < shift - w : open /Applications/WhatsApp.app;
 app < shift - s : open /Applications/Spotify.app;
@@ -165,7 +165,7 @@ office < escape; default
 office < space; app
 office < w : open "/Applications/Microsoft Word.app"; skhd -k space
 office < e : open "/Applications/Microsoft Excel.app"; skhd -k space
-office < o : open -a Safari https://outlook.office.com; skhd -k space
+office < o : open  https://outlook.office.com; skhd -k space
 office < s : open "/Applications/Slack.app"; skhd -k space
 office < m : open "/Applications/Mathematica.app"; skhd -k space
 office < t : open "/Applications/Microsoft Teams.app"; skhd -k space
