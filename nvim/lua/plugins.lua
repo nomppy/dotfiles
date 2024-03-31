@@ -19,9 +19,10 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
   {'easymotion/vim-easymotion'},
-  {'nvim-tree/nvim-tree.lua'},
+  --{'nvim-tree/nvim-tree.lua'},
+  {'preservim/nerdtree'},
   {'nvim-lualine/lualine.nvim'},
-  {'vim-airline/vim-airline-themes'},
+  --{'vim-airline/vim-airline-themes'},
   {'nvim-telescope/telescope.nvim'},
   {'ryanoasis/vim-devicons'},
   {'folke/which-key.nvim',
@@ -30,9 +31,13 @@ local plugins = {
 --    require("config.whichkey").setup()
   init = function()
     vim.o.timeout = true
-    vim.o.timeoutlen = 300
+    vim.o.timeoutlen = 500
   end, },
-  {'ms-jpq/coq_nvim'},
+
+  -- coq
+  {'ms-jpq/coq_nvim', branch='coq'},
+  {'ms-jpq/coq.artifacts', branch='artifacts'},
+  {'ms-jpq/coq.thirdparty', branch='3p'},
   --{'nvim-treesitter/nvim-treesitter'},
 
   -- latex
@@ -51,11 +56,16 @@ local plugins = {
 require("lazy").setup(plugins)
 vim.cmd.colorscheme "catppuccin"
 
+require('coq_3p') {
+  { src = "nvimlua", short_name = "nLUA" },
+  { src = "vimtex",  short_name = "vTEX" },
+  { src = "copilot", short_name = "COP", accept_key = "<c-f>" },
+}
 --require("nvim-treesitter.configs").setup({
-   -- -- this can also be a list of languages
-  --ensure_installed = all,
-  --auto_install = true,
-  --highlight = { enable = true },
+-- -- this can also be a list of languages
+--ensure_installed = all,
+--auto_install = true,
+--highlight = { enable = true },
 --})
 
 

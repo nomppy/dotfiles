@@ -2,6 +2,8 @@ vim.g.mapleader = ','
 vim.opt.clipboard = 'unnamedplus'   -- use system clipboard 
 vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 vim.opt.mouse = 'a'                 -- allow the mouse to be used in Nvim
+vim.opt.modifiable = true
+vim.opt.guifont = 'Hack'
 -- vim.opt.syntax = true
 
 -- Tab

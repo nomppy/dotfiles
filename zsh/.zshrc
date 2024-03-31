@@ -1,3 +1,8 @@
+setopt appendhistory autocd extendedglob
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -61,6 +66,7 @@ antigen apply
 
 bindkey '^]' autosuggest-accept
 bindkey -v
+
 export KEYTIMEOUT=1
 cursor_mode() {
 # See https://ttssh2.osdn.jp/manual/4/en/usage/tips/vim.html for cursor shapes
