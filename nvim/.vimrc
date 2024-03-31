@@ -25,6 +25,7 @@ Plug 'preservim/nerdtree'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'liuchengxu/vim-which-key'
+Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
 
 " On-demand lazy load
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
@@ -53,6 +54,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'yggdroot/indentline'
 
+" Theme
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 " Initialize plugin system

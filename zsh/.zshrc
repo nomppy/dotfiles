@@ -22,6 +22,7 @@ export PATH=/opt/homebrew/bin:$PATH
 export DBUS_SESSION_BUS_ADDRESS="unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET" 
 eval "$(rbenv init - zsh)"
 eval $(thefuck --alias)
+alias fucky='fuck -y'
 #eval "$(zoxide init zsh)"
 
 # Path to your oh-my-zsh installation.
@@ -58,40 +59,40 @@ antigen bundle zsh-users/zsh-autosuggestions
 
 antigen apply
 
-bindkey '^ ' autosuggest-accept
-#bindkey -v
-#export KEYTIMEOUT=1
-#cursor_mode() {
+bindkey '^]' autosuggest-accept
+bindkey -v
+export KEYTIMEOUT=1
+cursor_mode() {
 # See https://ttssh2.osdn.jp/manual/4/en/usage/tips/vim.html for cursor shapes
-    #cursor_block='\e[2 q'
-    #cursor_beam='\e[6 q'
+    cursor_block='\e[2 q'
+    cursor_beam='\e[6 q'
 
-    #function zle-keymap-select {
-        #if [[ ${KEYMAP} == vicmd ]] ||
-            #[[ $1 = 'block' ]]; then
-            #echo -ne $cursor_block
-        #elif [[ ${KEYMAP} == main ]] ||
-            #[[ ${KEYMAP} == viins ]] ||
-            #[[ ${KEYMAP} = '' ]] ||
-            #[[ $1 = 'beam' ]]; then
-            #echo -ne $cursor_beam
-        #fi
-    #}
+    function zle-keymap-select {
+        if [[ ${KEYMAP} == vicmd ]] ||
+            [[ $1 = 'block' ]]; then
+            echo -ne $cursor_block
+        elif [[ ${KEYMAP} == main ]] ||
+            [[ ${KEYMAP} == viins ]] ||
+            [[ ${KEYMAP} = '' ]] ||
+            [[ $1 = 'beam' ]]; then
+            echo -ne $cursor_beam
+        fi
+    }
 
-    #zle-line-init() {
-        #echo -ne $cursor_beam
-    #}
+    zle-line-init() {
+        echo -ne $cursor_beam
+    }
 
-    #zle -N zle-keymap-select
-    #zle -N zle-line-init
-#}
+    zle -N zle-keymap-select
+    zle -N zle-line-init
+}
 
-#cursor_mode
+cursor_mode
 
 #---------- AUTOLOAD ---------- 
 export FPATH="$HOME/.config/zsh/autoload/:$FPATH"
 autoload -U colors && colors
-autoload -U compinit; compinit
+source ~/.config/zsh/completion.zsh
 
 setopt promptsubst
 
@@ -106,7 +107,10 @@ alias afl="alias-finder -l"
 alias afe="alias-finder -e"
 alias v="nvim"
 alias m="neomutt"
-alias q="exit"
+alias tm="tmux"
+alias tma="tmux attach"
+alias tmks="tmux kill-session"
+alias tmls="tmux list-session"
 
 alias -g @G='| grep'
 alias -g @L='| less'
