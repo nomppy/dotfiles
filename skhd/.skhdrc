@@ -130,7 +130,7 @@ app < p : open /Applications/sioyek.app;
 app < f : open /Applications/Firefox.app;
 #app < n : open /Applications/Notion.app;
 app < b : open /Applications/Obsidian.app;
-app < e : open /Applications/Emacs.app;
+#app < e : open /Applications/Emacs.app;
 app < a : open /Applications/Arc.app;
 
 app < shift - a : open /Applications/Anki.app;
