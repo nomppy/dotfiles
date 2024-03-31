@@ -37,6 +37,14 @@ nmap('L', '$')
 vmap('H', '^')
 vmap('L', '$')
 
+-- Move selected
+map('x', 'K', ":move '<-2<CR>gv-gv")
+map('x', 'J', ":move '>+1<CR>gv-gv")
+
+-- Better indent
+vmap('<', '<gv')
+vmap('>', '>gv')
+
 -- Window Navigation
 nmap('q', '<Cmd>q<CR>')
 
@@ -55,18 +63,18 @@ nnoremap <C-t>h <Cmd>tabp<CR>
 nnoremap <C-t>k <Cmd>tabc<CR>
 ]]
 
+-- Pane Navigation
+nmap("<Left>", ":vertical resize +1<CR>")
+nmap("<Right>", ":vertical resize -1<CR>")
+nmap("<Up>", ":resize -1<CR>")
+nmap("<Down>", ":resize +1<CR>")
+
 -- NERDTree Mappings
 vim.cmd [[
 nnoremap <Leader>nt :NERDTreeToggle<CR>
 nnoremap <Leader>nf :NERDTreeFind<CR>
 nnoremap <Leader>nc :NERDTreeCWD<CR>
 ]]
-
--- Search
-nmap('<F9>', ':let @/ = ""<CR>')
-
--- Spell Check
-imap('<C-l>', '<c-g>u<Esc>[s1z=`]a<c-g>u')
 
 -- Git gutter mappings
 -- nmap ]h <Plug>(GitGutterNextHunk)
@@ -76,3 +84,5 @@ imap('<C-l>', '<c-g>u<Esc>[s1z=`]a<c-g>u')
 nmap(';', ':')
 nmap('<Leader>s', '<Cmd>write<CR>')
 nmap('<Leader>r', '<Cmd>redraw!<CR>')
+nmap('<ESC>', ':let @/ = ""<CR>')
+imap('<C-l>', '<c-g>u<Esc>[s1z=`]a<c-g>u')
