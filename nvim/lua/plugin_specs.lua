@@ -38,6 +38,10 @@ local plugin_specs = {
       require("config.nvim-cmp")
     end,
   },
+  -- coq
+  {'ms-jpq/coq_nvim', branch='coq'},
+  {'ms-jpq/coq.artifacts', branch='artifacts'},
+  {'ms-jpq/coq.thirdparty', branch='3p'},
 
   {
     "neovim/nvim-lspconfig",
