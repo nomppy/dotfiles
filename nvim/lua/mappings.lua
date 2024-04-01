@@ -311,4 +311,4 @@ keymap.set("n", "<leader>cb", function()
 
     cnt = cnt + 1
   end))
-end)
+end, { desc = "Blink cursor" })
