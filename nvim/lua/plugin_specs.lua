@@ -44,14 +44,6 @@ local plugin_specs = {
   {'ms-jpq/coq.thirdparty', branch='3p'},
 
   {
-    "neovim/nvim-lspconfig",
-    event = { "BufRead", "BufNewFile" },
-    config = function()
-      require("config.lsp")
-    end,
-  },
-
-  {
     "nvim-treesitter/nvim-treesitter",
     enabled = function()
       if vim.g.is_mac then
@@ -131,15 +123,7 @@ local plugin_specs = {
     config = true, -- or `opts = {}`
   },
   -- A list of colorscheme plugin you may want to try. Find what suits you.
-  { "navarasu/onedark.nvim", lazy = true },
-  { "sainnhe/edge", lazy = true },
-  { "sainnhe/sonokai", lazy = true },
-  { "sainnhe/gruvbox-material", lazy = true },
-  { "sainnhe/everforest", lazy = true },
-  { "EdenEast/nightfox.nvim", lazy = true },
   { "catppuccin/nvim", name = "catppuccin", lazy = true },
-  { "olimorris/onedarkpro.nvim", lazy = true },
-  { "marko-cerovac/material.nvim", lazy = true },
 
   { "nvim-tree/nvim-web-devicons", event = "VeryLazy" },
 
@@ -237,61 +221,61 @@ local plugin_specs = {
   -- { "907th/vim-auto-save", event = "InsertEnter" },
 
   -- Show undo history visually
-  { "simnalamburt/vim-mundo", cmd = { "MundoToggle", "MundoShow" } },
+  -- { "simnalamburt/vim-mundo", cmd = { "MundoToggle", "MundoShow" } },
 
   -- better UI for some nvim actions
-  { "stevearc/dressing.nvim" },
+  -- { "stevearc/dressing.nvim" },
 
   -- Manage your yank history
-  {
-    "gbprod/yanky.nvim",
-    cmd = { "YankyRingHistory" },
-    config = function()
-      require("config.yanky")
-    end,
-  },
+  -- {
+  --   "gbprod/yanky.nvim",
+  --   cmd = { "YankyRingHistory" },
+  --   config = function()
+  --     require("config.yanky")
+  --   end,
+  -- },
 
   -- Handy unix command inside Vim (Rename, Move etc.)
-  { "tpope/vim-eunuch", cmd = { "Rename", "Delete" } },
+  -- { "tpope/vim-eunuch", cmd = { "Rename", "Delete" } },
 
   -- Repeat vim motions
-  { "tpope/vim-repeat", event = "VeryLazy" },
+  -- { "tpope/vim-repeat", event = "VeryLazy" },
 
   -- { "nvim-zh/better-escape.vim", event = { "InsertEnter" } },
 
-  {
-    "lyokha/vim-xkbswitch",
-    enabled = function()
-      if vim.g.is_mac and utils.executable("xkbswitch") then
-        return true
-      end
-      return false
-    end,
-    event = { "InsertEnter" },
-  },
+  -- {
+  --   "lyokha/vim-xkbswitch",
+  --   enabled = function()
+  --     if vim.g.is_mac and utils.executable("xkbswitch") then
+  --       return true
+  --     end
+  --     return false
+  --   end,
+  --   event = { "InsertEnter" },
+  -- },
 
-  {
-    "Neur1n/neuims",
-    enabled = function()
-      if vim.g.is_win then
-        return true
-      end
-      return false
-    end,
-    event = { "InsertEnter" },
-  },
+  -- {
+  --   "Neur1n/neuims",
+  --   enabled = function()
+  --     if vim.g.is_win then
+  --       return true
+  --     end
+  --     return false
+  --   end,
+  --   event = { "InsertEnter" },
+  -- },
 
   -- Auto format tools
-  { "sbdchd/neoformat", cmd = { "Neoformat" } },
+  -- { "sbdchd/neoformat", cmd = { "Neoformat" } },
 
   -- Git command inside vim
-  {
-    "tpope/vim-fugitive",
-    event = "User InGitRepo",
-    config = function()
-      require("config.fugitive")
-    end,
-  },
+  -- {
+  --   "tpope/vim-fugitive",
+  --   event = "User InGitRepo",
+  --   config = function()
+  --     require("config.fugitive")
+  --   end,
+  -- },
 
   -- Better git log display
   -- { "rbong/vim-flog", cmd = { "Flog" } },
@@ -313,66 +297,66 @@ local plugin_specs = {
   },
 
   -- Better git commit experience
-  { "rhysd/committia.vim", lazy = true },
+  -- { "rhysd/committia.vim", lazy = true },
 
-  {
-    "sindrets/diffview.nvim"
-  },
+  -- {
+  --   "sindrets/diffview.nvim"
+  -- },
 
-  {
-    "kevinhwang91/nvim-bqf",
-    ft = "qf",
-    config = function()
-      require("config.bqf")
-    end,
-  },
+  -- {
+  --   "kevinhwang91/nvim-bqf",
+  --   ft = "qf",
+  --   config = function()
+  --     require("config.bqf")
+  --   end,
+  -- },
 
   -- Another markdown plugin
-  { "preservim/vim-markdown", ft = { "markdown" } },
+  -- { "preservim/vim-markdown", ft = { "markdown" } },
 
   -- Faster footnote generation
-  { "vim-pandoc/vim-markdownfootnotes", ft = { "markdown" } },
+  -- { "vim-pandoc/vim-markdownfootnotes", ft = { "markdown" } },
 
   -- Vim tabular plugin for manipulate tabular, required by markdown plugins
-  { "godlygeek/tabular", cmd = { "Tabularize" } },
+  -- { "godlygeek/tabular", cmd = { "Tabularize" } },
 
   -- Markdown previewing (only for Mac and Windows)
-  {
-    "iamcco/markdown-preview.nvim",
-    enabled = function()
-      if vim.g.is_win or vim.g.is_mac then
-        return true
-      end
-      return false
-    end,
-    build = "cd app && npm install",
-    ft = { "markdown" },
-  },
+  -- {
+  --   "iamcco/markdown-preview.nvim",
+  --   enabled = function()
+  --     if vim.g.is_win or vim.g.is_mac then
+  --       return true
+  --     end
+  --     return false
+  --   end,
+  --   build = "cd app && npm install",
+  --   ft = { "markdown" },
+  -- },
 
-  {
-    "folke/zen-mode.nvim",
-    cmd = "ZenMode",
-    config = function()
-      require("config.zen-mode")
-    end,
-  },
+  -- {
+  --   "folke/zen-mode.nvim",
+  --   cmd = "ZenMode",
+  --   config = function()
+  --     require("config.zen-mode")
+  --   end,
+  -- },
 
-  {
-    "rhysd/vim-grammarous",
-    enabled = function()
-      if vim.g.is_mac then
-        return true
-      end
-      return false
-    end,
-    ft = { "markdown" },
-  },
+  -- {
+  --   "rhysd/vim-grammarous",
+  --   enabled = function()
+  --     if vim.g.is_mac then
+  --       return true
+  --     end
+  --     return false
+  --   end,
+  --   ft = { "markdown" },
+  -- },
 
-  { "chrisbra/unicode.vim", event = "VeryLazy" },
+  -- { "chrisbra/unicode.vim", event = "VeryLazy" },
 
   -- Additional powerful text object for vim, this plugin should be studied
   -- carefully to use its full power
-  { "wellle/targets.vim", event = "VeryLazy" },
+  -- { "wellle/targets.vim", event = "VeryLazy" },
 
   -- Plugin to manipulate character pairs quickly
   { "machakann/vim-sandwich", event = "VeryLazy" },
@@ -395,66 +379,66 @@ local plugin_specs = {
   -- Since tmux is only available on Linux and Mac, we only enable these plugins
   -- for Linux and Mac
   -- .tmux.conf syntax highlighting and setting check
-  {
-    "tmux-plugins/vim-tmux",
-    enabled = function()
-      if utils.executable("tmux") then
-        return true
-      end
-      return false
-    end,
-    ft = { "tmux" },
-  },
+  -- {
+  --   "tmux-plugins/vim-tmux",
+  --   enabled = function()
+  --     if utils.executable("tmux") then
+  --       return true
+  --     end
+  --     return false
+  --   end,
+  --   ft = { "tmux" },
+  -- },
 
   -- Modern matchit implementation
-  { "andymass/vim-matchup", event = "BufRead" },
-  { "tpope/vim-scriptease", cmd = { "Scriptnames", "Message", "Verbose" } },
+  -- { "andymass/vim-matchup", event = "BufRead" },
+  -- { "tpope/vim-scriptease", cmd = { "Scriptnames", "Message", "Verbose" } },
 
   -- Asynchronous command execution
-  { "skywind3000/asyncrun.vim", lazy = true, cmd = { "AsyncRun" } },
-  { "cespare/vim-toml", ft = { "toml" }, branch = "main" },
+  -- { "skywind3000/asyncrun.vim", lazy = true, cmd = { "AsyncRun" } },
+  -- { "cespare/vim-toml", ft = { "toml" }, branch = "main" },
 
   -- Edit text area in browser using nvim
-  {
-    "glacambre/firenvim",
-    enabled = function()
-      if vim.g.is_win or vim.g.is_mac then
-        return true
-      end
-      return false
-    end,
-    build = function()
-      vim.fn["firenvim#install"](0)
-    end,
-    lazy = true,
-  },
+  -- {
+  --   "glacambre/firenvim",
+  --   enabled = function()
+  --     if vim.g.is_win or vim.g.is_mac then
+  --       return true
+  --     end
+  --     return false
+  --   end,
+  --   build = function()
+  --     vim.fn["firenvim#install"](0)
+  --   end,
+  --   lazy = true,
+  -- },
 
   -- Debugger plugin
-  {
-    "sakhnik/nvim-gdb",
-    enabled = function()
-      if vim.g.is_win or vim.g.is_linux then
-        return true
-      end
-      return false
-    end,
-    build = { "bash install.sh" },
-    lazy = true,
-  },
+  -- {
+  --   "sakhnik/nvim-gdb",
+  --   enabled = function()
+  --     if vim.g.is_win or vim.g.is_linux then
+  --       return true
+  --     end
+  --     return false
+  --   end,
+  --   build = { "bash install.sh" },
+  --   lazy = true,
+  -- },
 
   -- Session management plugin
-  { "tpope/vim-obsession", cmd = "Obsession" },
+  -- { "tpope/vim-obsession", cmd = "Obsession" },
 
-  {
-    "ojroques/vim-oscyank",
-    enabled = function()
-      if vim.g.is_linux then
-        return true
-      end
-      return false
-    end,
-    cmd = { "OSCYank", "OSCYankReg" },
-  },
+  -- {
+  --   "ojroques/vim-oscyank",
+  --   enabled = function()
+  --     if vim.g.is_linux then
+  --       return true
+  --     end
+  --     return false
+  --   end,
+  --   cmd = { "OSCYank", "OSCYankReg" },
+  -- },
 
   -- The missing auto-completion for cmdline!
   {
@@ -477,7 +461,7 @@ local plugin_specs = {
   -- file explorer
   {
     "nvim-tree/nvim-tree.lua",
-    keys = { "<space>s" },
+    keys = { "<leader>e" },
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("config.nvim-tree")

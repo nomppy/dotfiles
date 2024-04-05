@@ -1,168 +1,124 @@
-global !p
-def gen_header(snip):
-	placeholders_string = snip.buffer[snip.line].strip()
-	level = int(placeholders_string[0])
 
-	# erase current line
-	snip.buffer[snip.line] = ""
-	line_content = "#"*level + " ${1:Section Name}"
-	line_content += '\n$0'
-
-	snip.expand_anon(line_content)
-endglobal
-
-snippet "(k1|kbd)" "HTML kbd tag" rw
-<kbd>${1:KEY}</kbd>$0
-endsnippet
-
-snippet k2 "Two key strokes shortcut"
-<kbd>${1:KEY}</kbd> + <kbd>${2:KEY}</kbd>
-endsnippet
-
-snippet k3 "Three key strokes shortcut"
-<kbd>${1:KEY}</kbd> + <kbd>${2:KEY}</kbd> + <kbd>${3:KEY}</kbd>
-endsnippet
-
-snippet meta "Markdown front matter (YAML format)" b
+snippet meta "metadata" b
 ---
-title: "$1"
-date: `!p from datetime import datetime
-if not snip.c:
-	snip.rv=datetime.now().astimezone().strftime("%Y-%m-%d %H:%M:%S%z")`
-tags: [$2]
-categories: [$3]
+title: $1
+description: $2
+category: $3
+status: $4
+start: $5
+end: $6
 ---
+
 $0
 endsnippet
 
-snippet more "HTML more tag"
-<!--more-->
-endsnippet
+snippet img "article image" iw
 
-snippet img "Aligned image using HTML tag"
-<p align="center">
-<img src="${1:URL}" width="${2:800}">
-</p>
+<article-image src='$1' alt='$2'> </article-image>
+<div class='img-caption'> $3 </div>
+
 $0
 endsnippet
 
-snippet font "HTML font tag"
-<font color="${1:blue}">${2:TEXT}</font>
+snippet whisp "small whisper" iw
+<small class='whisper'> $1 </small> $0
 endsnippet
 
-snippet link "Markdown links"
-[$1]($2)$0
+snippet -- "em-dash" i
+—
 endsnippet
 
-post_jump "gen_header(snip)"
-snippet "h([1-6])" "Markdown header" br
-`!p snip.rv = match.group(1)`
+###########################
+# Sections and Paragraphs #
+###########################
+snippet sec "Section" b
+# ${1:Section Name} #
+$0
 endsnippet
 
-snippet detail "Clickable details" b
-<details>
-<summary><font size="2" color="red">${1:Click to show the code.}</font></summary>
+snippet ssec "Sub Section" b
+## ${1:Section Name} ##
+$0
+endsnippet
 
-$2
+snippet sssec "SubSub Section" b
+### ${1:Section Name} ###
+$0
+endsnippet
+
+snippet par "Paragraph" b
+#### ${1:Paragraph Name} ####
+$0
+endsnippet
+
+snippet spar "Paragraph" b
+##### ${1:Paragraph Name} #####
+$0
+endsnippet
+
+###################
+# Text formatting #
+###################
+
+snippet * "italics"
+*${1:${VISUAL}}*$0
+endsnippet
+
+snippet ** "bold"
+**${1:${VISUAL}}**$0
+endsnippet
+
+snippet *** "bold italics"
+***${1:${VISUAL}}***$0
+endsnippet
+
+snippet /* "Comment"
+<!-- ${1:${VISUAL}} -->$0
+endsnippet
+
+################
+# Common stuff #
+################
+snippet link "Link to something"
+[${1:${VISUAL:Text}}](${3:https://${2:www.url.com}})$0
+endsnippet
+
+#snippet img "Image"
+#![${1:pic alt}](${2:path}${3/.+/ "/}${3:opt title}${3/.+/"/})$0
+#endsnippet
+
+snippet ilc "Inline Code" i
+\`${1:${VISUAL}}\`$0
+endsnippet
+
+snippet cbl "Codeblock" b
+\`\`\`$1
+${2:${VISUAL}}
+\`\`\`
+$0
+endsnippet
+
+snippet refl "Reference Link"
+[${1:${VISUAL:Text}}][${2:id}]$0
+
+[$2]:${4:https://${3:www.url.com}} "${5:$4}"
+endsnippet
+
+snippet fnt "Footnote"
+[^${1:${VISUAL:Footnote}}]$0
+
+[^$1]:${2:Text}
+endsnippet
+
+snippet detail "Disclosure"
+<details${3: open=""}>
+  ${1:<summary>${2}</summary>}$0
 </details>
 endsnippet
 
-snippet yh "直角引号" w
-「$1」
+post_jump "create_table(snip)"
+snippet "tb([1-9][1-9])" "Fancy table" br
+`!p snip.rv = match.group(1)`
 endsnippet
 
-snippet info "info box"
-<style type="text/css">
-@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
-
-.info-msg {
-	color: #059;
-	background-color: #BEF;
-	margin: 5px 0;
-	margin-bottom: 20px;
-	padding: 10px;
-	border-radius: 5px 5px 5px 5px;
-	border: 2px solid transparent;
-	border-color: transparent;
-}
-</style>
-
-<div class="info-msg">
-	<i class="fa fa-info-circle"> Info</i></br>
-	${1:info text}
-</div>
-$0
-endsnippet
-
-snippet warn "warning box"
-<style type="text/css">
-@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
-
-.warning-msg {
-	color: #9F6000;
-	background-color: #FEEFB3;
-	margin: 5px 0;
-	margin-bottom: 20px;
-	padding: 10px;
-	border-radius: 5px 5px 5px 5px;
-	border: 2px solid transparent;
-	border-color: transparent;
-}
-</style>
-
-<div class="warning-msg">
-	<i class="fa fa-warning"> Warning</i></br>
-	${1:warning text}
-</div>
-$0
-endsnippet
-
-snippet error "error box"
-<style type="text/css">
-@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
-
-.error-msg {
-	color: #D8000C;
-	background-color: #FFBABA;
-	margin: 5px 0;
-	margin-bottom: 20px;
-	padding: 10px;
-	border-radius: 5px 5px 5px 5px;
-	border: 2px solid transparent;
-	border-color: transparent;
-}
-</style>
-
-<div class="error-msg">
-	<i class="fa fa-times-circle"> Error</i></br>
-	${1:error text}
-</div>
-$0
-endsnippet
-
-snippet success "success box"
-<style type="text/css">
-@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
-
-.success-msg {
-	color: #270;
-	background-color: #DFF2BF;
-	margin: 5px 0;
-	margin-bottom: 20px;
-	padding: 10px;
-	border-radius: 5px 5px 5px 5px;
-	border: 2px solid transparent;
-	border-color: transparent;
-}
-</style>
-
-<div class="success-msg">
-	<i class="fa fa-check"></i>
-	${1:success text}
-</div>
-$0
-endsnippet
-
-snippet td "too long do not read" bw
-tl;dr: $1
-endsnippet
+# vim:ft=snippets:

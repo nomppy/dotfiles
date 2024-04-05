@@ -8,7 +8,7 @@ gs.setup {
     topdelete = { hl = "GitSignsDelete", text = "‾", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
     changedelete = { hl = "GitSignsChange", text = "│", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
   },
-  word_diff = true,
+  word_diff = false,
   on_attach = function(bufnr)
     local function map(mode, l, r, opts)
       opts = opts or {}
@@ -38,10 +38,16 @@ gs.setup {
     end, { expr = true, desc = "previous hunk" })
 
     -- Actions
-    map("n", "<leader>hp", gs.preview_hunk)
+    map("n", "<leader>hp", gs.preview_hunk, { desc = "preview hunk" })
     map("n", "<leader>hb", function()
       gs.blame_line { full = true }
-    end)
+    end, { desc = "blame line" })
+    map('n', '<leader>hr', gs.reset_hunk, { desc = "reset hunk" })
+    map('v', '<leader>hr', function() gs.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end,
+        { desc = "reset hunk" })
+    map('n', '<leader>td', gs.toggle_deleted, { desc = "toggle deleted" })
+    map('n', '<leader>hd', gs.diffthis, { desc = "diff this" })
+
   end,
 }
 

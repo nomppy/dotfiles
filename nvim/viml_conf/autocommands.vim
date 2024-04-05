@@ -48,51 +48,51 @@ augroup numbertoggle
 augroup END
 
 " Define or override some highlight groups
-augroup custom_highlight
-  autocmd!
-  autocmd ColorScheme * call s:custom_highlight()
-augroup END
+" augroup custom_highlight
+"   autocmd!
+"   autocmd ColorScheme * call s:custom_highlight()
+" augroup END
 
 function! s:custom_highlight() abort
   " For yank highlight
   highlight YankColor ctermfg=59 ctermbg=41 guifg=#34495E guibg=#2ECC71
 
   " For cursor colors
-  highlight Cursor cterm=bold gui=bold guibg=#00c918 guifg=black
-  highlight Cursor2 guifg=red guibg=red
+  " highlight Cursor cterm=bold gui=bold guibg=#00c918 guifg=black
+  " highlight Cursor2 guifg=red guibg=red
 
   " For floating windows border highlight
-  highlight FloatBorder guifg=LightGreen guibg=NONE
+  " highlight FloatBorder guifg=LightGreen guibg=NONE
 
   " highlight for matching parentheses
   highlight MatchParen cterm=bold,underline gui=bold,underline
 endfunction
 
-augroup auto_close_win
-  autocmd!
-  autocmd BufEnter * call s:quit_current_win()
-augroup END
+" augroup auto_close_win
+"   autocmd!
+"   autocmd BufEnter * call s:quit_current_win()
+" augroup END
 
 " Quit Nvim if we have only one window, and its filetype match our pattern.
-function! s:quit_current_win() abort
-  let l:quit_filetypes = ['qf', 'vista', 'NvimTree']
+" function! s:quit_current_win() abort
+"   let l:quit_filetypes = ['qf', 'vista', 'NvimTree']
 
-  let l:should_quit = v:true
+"   let l:should_quit = v:true
 
-  let l:tabwins = nvim_tabpage_list_wins(0)
-  for w in l:tabwins
-    let l:buf = nvim_win_get_buf(w)
-    let l:bf = getbufvar(l:buf, '&filetype')
+"   let l:tabwins = nvim_tabpage_list_wins(0)
+"   for w in l:tabwins
+"     let l:buf = nvim_win_get_buf(w)
+"     let l:bf = getbufvar(l:buf, '&filetype')
 
-    if index(l:quit_filetypes, l:bf) == -1
-      let l:should_quit = v:false
-    endif
-  endfor
+"     if index(l:quit_filetypes, l:bf) == -1
+"       let l:should_quit = v:false
+"     endif
+"   endfor
 
-  if l:should_quit
-    qall
-  endif
-endfunction
+"   if l:should_quit
+"     qall
+"   endif
+" endfunction
 
 augroup git_repo_check
   autocmd!

@@ -164,10 +164,10 @@ keymap.set("x", "<", "<gv")
 keymap.set("x", ">", ">gv")
 
 -- Edit and reload nvim config file quickly
-keymap.set("n", "<leader>ev", "<cmd>tabnew $MYVIMRC <bar> tcd %:h<cr>", {
-  silent = true,
-  desc = "open init.lua",
-})
+-- keymap.set("n", "<leader>ev", "<cmd>tabnew $MYVIMRC <bar> tcd %:h<cr>", {
+--   silent = true,
+--   desc = "open init.lua",
+-- })
 
 keymap.set("n", "<leader>sv", function()
   vim.cmd([[

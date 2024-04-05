@@ -32,7 +32,7 @@ let g:UltiSnipsJumpBackwardTrigger='<c-k>'
 let g:UltiSnipsSnippetDirectories=['UltiSnips', 'my_snippets']
 
 """""""""""""""""""""""""" vlime settings """"""""""""""""""""""""""""""""
-command! -nargs=0 StartVlime call jobstart(printf("sbcl --load %s/vlime/lisp/start-vlime.lisp", g:package_home))
+" command! -nargs=0 StartVlime call jobstart(printf("sbcl --load %s/vlime/lisp/start-vlime.lisp", g:package_home))
 
 """""""""""""""""""""""""""""LeaderF settings"""""""""""""""""""""
 " Do not use cache file
@@ -59,14 +59,14 @@ endif
 let g:Lf_DefaultMode = 'FullPath'
 
 " Popup window settings
-let w = float2nr(&columns * 0.8)
-if w > 140
-  let g:Lf_PopupWidth = 140
-else
-  let g:Lf_PopupWidth = w
-endif
+" let w = float2nr(&columns * 0.8)
+" if w > 140
+"   let g:Lf_PopupWidth = 140
+" else
+"   let g:Lf_PopupWidth = w
+" endif
 
-let g:Lf_PopupPosition = [0, float2nr((&columns - g:Lf_PopupWidth)/2)]
+" let g:Lf_PopupPosition = [0, float2nr((&columns - g:Lf_PopupWidth)/2)]
 
 " Do not use version control tool to list files under a directory since
 " submodules are not searched by default.
@@ -79,31 +79,31 @@ let g:Lf_DefaultExternalTool = "rg"
 let g:Lf_ShowHidden = 1
 
 " Disable default mapping
-let g:Lf_ShortcutF = ''
-let g:Lf_ShortcutB = ''
+" let g:Lf_ShortcutF = ''
+" let g:Lf_ShortcutB = ''
 
 " set up working directory for git repository
 let g:Lf_WorkingDirectoryMode = 'a'
 
-let g:Lf_PopupColorscheme = 'gruvbox_material'
+" let g:Lf_PopupColorscheme = 'gruvbox_material'
 
 " Change keybinding in LeaderF prompt mode, use ctrl-n and ctrl-p to navigate
 " items.
-let g:Lf_CommandMap = {'<C-J>': ['<C-N>'], '<C-K>': ['<C-P>']}
+" let g:Lf_CommandMap = {'<C-J>': ['<C-N>'], '<C-K>': ['<C-P>']}
 
 " do not preview results, it will add the file to buffer list
-let g:Lf_PreviewResult = {
-      \ 'File': 0,
-      \ 'Buffer': 0,
-      \ 'Mru': 0,
-      \ 'Tag': 0,
-      \ 'BufTag': 1,
-      \ 'Function': 1,
-      \ 'Line': 0,
-      \ 'Colorscheme': 0,
-      \ 'Rg': 0,
-      \ 'Gtags': 0
-      \}
+" let g:Lf_PreviewResult = {
+"       \ 'File': 0,
+"       \ 'Buffer': 0,
+"       \ 'Mru': 0,
+"       \ 'Tag': 0,
+"       \ 'BufTag': 1,
+"       \ 'Function': 1,
+"       \ 'Line': 0,
+"       \ 'Colorscheme': 0,
+"       \ 'Rg': 0,
+"       \ 'Gtags': 0
+"       \}
 
 """"""""""""""""""""""""""""open-browser.vim settings"""""""""""""""""""
 if g:is_win || g:is_mac
@@ -111,47 +111,47 @@ if g:is_win || g:is_mac
   let g:netrw_nogx = 1
 
   " Use another mapping for the open URL method
-  nmap ob <Plug>(openbrowser-smart-search)
-  xmap ob <Plug>(openbrowser-smart-search)
+  " nmap ob <Plug>(openbrowser-smart-search)
+  " xmap ob <Plug>(openbrowser-smart-search)
 endif
 
 """"""""""""""""""""""""""" vista settings """"""""""""""""""""""""""""""""""
-let g:vista#renderer#icons = {
-      \ 'member': '',
-      \ }
+" let g:vista#renderer#icons = {
+"       \ 'member': '',
+"       \ }
 
-" Do not echo message on command line
-let g:vista_echo_cursor = 0
-" Stay in current window when vista window is opened
-let g:vista_stay_on_open = 0
+" " Do not echo message on command line
+" let g:vista_echo_cursor = 0
+" " Stay in current window when vista window is opened
+" let g:vista_stay_on_open = 0
 
-nnoremap <silent> <Space>t :<C-U>Vista!!<CR>
+" nnoremap <silent> <Space>t :<C-U>Vista!!<CR>
 
 """"""""""""""""""""""""vim-mundo settings"""""""""""""""""""""""
-let g:mundo_verbose_graph = 0
-let g:mundo_width = 80
+" let g:mundo_verbose_graph = 0
+" let g:mundo_width = 80
 
-nnoremap <silent> <Space>u :MundoToggle<CR>
+" nnoremap <silent> <Space>u :MundoToggle<CR>
 
 """"""""""""""""""""""""""""better-escape.vim settings"""""""""""""""""""""""""
-let g:better_escape_interval = 200
+" let g:better_escape_interval = 200
 
 """"""""""""""""""""""""""""vim-xkbswitch settings"""""""""""""""""""""""""
-let g:XkbSwitchEnabled = 1
+" let g:XkbSwitchEnabled = 1
 
 """""""""""""""""""""""""""""" neoformat settings """""""""""""""""""""""
-let g:neoformat_enabled_python = ['black', 'yapf']
-let g:neoformat_cpp_clangformat = {
-      \ 'exe': 'clang-format',
-      \ 'args': ['--style="{IndentWidth: 4}"']
-      \ }
-let g:neoformat_c_clangformat = {
-      \ 'exe': 'clang-format',
-      \ 'args': ['--style="{IndentWidth: 4}"']
-      \ }
+" let g:neoformat_enabled_python = ['black', 'yapf']
+" let g:neoformat_cpp_clangformat = {
+"       \ 'exe': 'clang-format',
+"       \ 'args': ['--style="{IndentWidth: 4}"']
+"       \ }
+" let g:neoformat_c_clangformat = {
+"       \ 'exe': 'clang-format',
+"       \ 'args': ['--style="{IndentWidth: 4}"']
+"       \ }
 
-let g:neoformat_enabled_cpp = ['clangformat']
-let g:neoformat_enabled_c = ['clangformat']
+" let g:neoformat_enabled_cpp = ['clangformat']
+" let g:neoformat_enabled_c = ['clangformat']
 
 """""""""""""""""""""""""vim-markdown settings"""""""""""""""""""
 " Disable header folding
@@ -174,106 +174,106 @@ let g:vim_markdown_toc_autofit = 1
 
 """""""""""""""""""""""""markdown-preview settings"""""""""""""""""""
 " Only setting this for suitable platforms
-if g:is_win || g:is_mac
+" if g:is_win || g:is_mac
   " Do not close the preview tab when switching to other buffers
-  let g:mkdp_auto_close = 0
+  " let g:mkdp_auto_close = 0
 
   " Shortcuts to start and stop markdown previewing
-  nnoremap <silent> <M-m> :<C-U>MarkdownPreview<CR>
-  nnoremap <silent> <M-S-m> :<C-U>MarkdownPreviewStop<CR>
-endif
+  " nnoremap <silent> <M-m> :<C-U>MarkdownPreview<CR>
+  " nnoremap <silent> <M-S-m> :<C-U>MarkdownPreviewStop<CR>
+" endif
 
-""""""""""""""""""""""""vim-grammarous settings""""""""""""""""""""""""""""""
-if g:is_mac
-  let g:grammarous#languagetool_cmd = 'languagetool'
-  let g:grammarous#disabled_rules = {
-      \ '*' : ['WHITESPACE_RULE', 'EN_QUOTES', 'ARROWS', 'SENTENCE_WHITESPACE',
-      \        'WORD_CONTAINS_UNDERSCORE', 'COMMA_PARENTHESIS_WHITESPACE',
-      \        'EN_UNPAIRED_BRACKETS', 'UPPERCASE_SENTENCE_START',
-      \        'ENGLISH_WORD_REPEAT_BEGINNING_RULE', 'DASH_RULE', 'PLUS_MINUS',
-      \        'PUNCTUATION_PARAGRAPH_END', 'MULTIPLICATION_SIGN', 'PRP_CHECKOUT',
-      \        'CAN_CHECKOUT', 'SOME_OF_THE', 'DOUBLE_PUNCTUATION', 'HELL',
-      \        'CURRENCY', 'POSSESSIVE_APOSTROPHE', 'ENGLISH_WORD_REPEAT_RULE',
-      \        'NON_STANDARD_WORD', 'AU', 'DATE_NEW_YEAR'],
-      \ }
+" """"""""""""""""""""""""vim-grammarous settings""""""""""""""""""""""""""""""
+" if g:is_mac
+"   let g:grammarous#languagetool_cmd = 'languagetool'
+"   let g:grammarous#disabled_rules = {
+"       \ '*' : ['WHITESPACE_RULE', 'EN_QUOTES', 'ARROWS', 'SENTENCE_WHITESPACE',
+"       \        'WORD_CONTAINS_UNDERSCORE', 'COMMA_PARENTHESIS_WHITESPACE',
+"       \        'EN_UNPAIRED_BRACKETS', 'UPPERCASE_SENTENCE_START',
+"       \        'ENGLISH_WORD_REPEAT_BEGINNING_RULE', 'DASH_RULE', 'PLUS_MINUS',
+"       \        'PUNCTUATION_PARAGRAPH_END', 'MULTIPLICATION_SIGN', 'PRP_CHECKOUT',
+"       \        'CAN_CHECKOUT', 'SOME_OF_THE', 'DOUBLE_PUNCTUATION', 'HELL',
+"       \        'CURRENCY', 'POSSESSIVE_APOSTROPHE', 'ENGLISH_WORD_REPEAT_RULE',
+"       \        'NON_STANDARD_WORD', 'AU', 'DATE_NEW_YEAR'],
+"       \ }
 
-  augroup grammarous_map
-    autocmd!
-    autocmd FileType markdown nmap <buffer> <leader>x <Plug>(grammarous-close-info-window)
-    autocmd FileType markdown nmap <buffer> <c-n> <Plug>(grammarous-move-to-next-error)
-    autocmd FileType markdown nmap <buffer> <c-p> <Plug>(grammarous-move-to-previous-error)
-  augroup END
-endif
+"   augroup grammarous_map
+"     autocmd!
+"     autocmd FileType markdown nmap <buffer> <leader>x <Plug>(grammarous-close-info-window)
+"     autocmd FileType markdown nmap <buffer> <c-n> <Plug>(grammarous-move-to-next-error)
+"     autocmd FileType markdown nmap <buffer> <c-p> <Plug>(grammarous-move-to-previous-error)
+"   augroup END
+" endif
 
 """"""""""""""""""""""""unicode.vim settings""""""""""""""""""""""""""""""
-nmap ga <Plug>(UnicodeGA)
+" nmap ga <Plug>(UnicodeGA)
 
 """"""""""""""""""""""""""""vim-sandwich settings"""""""""""""""""""""""""""""
 " Map s to nop since s in used by vim-sandwich. Use cl instead of s.
-nmap s <Nop>
-omap s <Nop>
+" nmap s <Nop>
+" omap s <Nop>
 
-""""""""""""""""""""""""""""vimtex settings"""""""""""""""""""""""""""""
-if executable('latex')
-  " Hacks for inverse search to work semi-automatically,
-  " see https://jdhao.github.io/2021/02/20/inverse_search_setup_neovim_vimtex/.
-  function! s:write_server_name() abort
-    let nvim_server_file = (has('win32') ? $TEMP : '/tmp') . '/vimtexserver.txt'
-    call writefile([v:servername], nvim_server_file)
-  endfunction
+" """"""""""""""""""""""""""""vimtex settings"""""""""""""""""""""""""""""
+" if executable('latex')
+"   " Hacks for inverse search to work semi-automatically,
+"   " see https://jdhao.github.io/2021/02/20/inverse_search_setup_neovim_vimtex/.
+"   function! s:write_server_name() abort
+"     let nvim_server_file = (has('win32') ? $TEMP : '/tmp') . '/vimtexserver.txt'
+"     call writefile([v:servername], nvim_server_file)
+"   endfunction
 
-  augroup vimtex_common
-    autocmd!
-    autocmd FileType tex call s:write_server_name()
-    autocmd FileType tex nmap <buffer> <F9> <plug>(vimtex-compile)
-  augroup END
+"   augroup vimtex_common
+"     autocmd!
+"     autocmd FileType tex call s:write_server_name()
+"     autocmd FileType tex nmap <buffer> <F9> <plug>(vimtex-compile)
+"   augroup END
 
-  let g:vimtex_compiler_latexmk = {
-        \ 'build_dir' : 'build',
-        \ }
+"   let g:vimtex_compiler_latexmk = {
+"         \ 'build_dir' : 'build',
+"         \ }
 
-  " TOC settings
-  let g:vimtex_toc_config = {
-        \ 'name' : 'TOC',
-        \ 'layers' : ['content', 'todo', 'include'],
-        \ 'resize' : 1,
-        \ 'split_width' : 30,
-        \ 'todo_sorted' : 0,
-        \ 'show_help' : 1,
-        \ 'show_numbers' : 1,
-        \ 'mode' : 2,
-        \ }
+"   " TOC settings
+"   let g:vimtex_toc_config = {
+"         \ 'name' : 'TOC',
+"         \ 'layers' : ['content', 'todo', 'include'],
+"         \ 'resize' : 1,
+"         \ 'split_width' : 30,
+"         \ 'todo_sorted' : 0,
+"         \ 'show_help' : 1,
+"         \ 'show_numbers' : 1,
+"         \ 'mode' : 2,
+"         \ }
 
-  " Viewer settings for different platforms
-  if g:is_win
-    let g:vimtex_view_general_viewer = 'SumatraPDF'
-    let g:vimtex_view_general_options = '-reuse-instance -forward-search @tex @line @pdf'
-  endif
+"   " Viewer settings for different platforms
+"   if g:is_win
+"     let g:vimtex_view_general_viewer = 'SumatraPDF'
+"     let g:vimtex_view_general_options = '-reuse-instance -forward-search @tex @line @pdf'
+"   endif
 
-  if g:is_mac
-    " let g:vimtex_view_method = "skim"
-    let g:vimtex_view_general_viewer = '/Applications/Skim.app/Contents/SharedSupport/displayline'
-    let g:vimtex_view_general_options = '-r @line @pdf @tex'
+"   if g:is_mac
+"     " let g:vimtex_view_method = "skim"
+"     let g:vimtex_view_general_viewer = '/Applications/Skim.app/Contents/SharedSupport/displayline'
+"     let g:vimtex_view_general_options = '-r @line @pdf @tex'
 
-    augroup vimtex_mac
-      autocmd!
-      autocmd User VimtexEventCompileSuccess call UpdateSkim()
-    augroup END
+"     augroup vimtex_mac
+"       autocmd!
+"       autocmd User VimtexEventCompileSuccess call UpdateSkim()
+"     augroup END
 
-    " The following code is adapted from https://gist.github.com/skulumani/7ea00478c63193a832a6d3f2e661a536.
-    function! UpdateSkim() abort
-      let l:out = b:vimtex.out()
-      let l:src_file_path = expand('%:p')
-      let l:cmd = [g:vimtex_view_general_viewer, '-r']
+"     " The following code is adapted from https://gist.github.com/skulumani/7ea00478c63193a832a6d3f2e661a536.
+"     function! UpdateSkim() abort
+"       let l:out = b:vimtex.out()
+"       let l:src_file_path = expand('%:p')
+"       let l:cmd = [g:vimtex_view_general_viewer, '-r']
 
-      if !empty(system('pgrep Skim'))
-        call extend(l:cmd, ['-g'])
-      endif
+"       if !empty(system('pgrep Skim'))
+"         call extend(l:cmd, ['-g'])
+"       endif
 
-      call jobstart(l:cmd + [line('.'), l:out, l:src_file_path])
-    endfunction
-  endif
-endif
+"       call jobstart(l:cmd + [line('.'), l:out, l:src_file_path])
+"     endfunction
+"   endif
+" endif
 
 """"""""""""""""""""""""""""vim-matchup settings"""""""""""""""""""""""""""""
 " Improve performance
@@ -291,55 +291,55 @@ let g:matchup_delim_noskips = 0
 let g:matchup_matchparen_offscreen = {'method': 'popup'}
 
 """""""""""""""""""""""""" asyncrun.vim settings """"""""""""""""""""""""""
-" Automatically open quickfix window of 6 line tall after asyncrun starts
-let g:asyncrun_open = 6
-if g:is_win
-  " Command output encoding for Windows
-  let g:asyncrun_encs = 'gbk'
-endif
+" " Automatically open quickfix window of 6 line tall after asyncrun starts
+" let g:asyncrun_open = 6
+" if g:is_win
+"   " Command output encoding for Windows
+"   let g:asyncrun_encs = 'gbk'
+" endif
 
 """"""""""""""""""""""""""""""firenvim settings""""""""""""""""""""""""""""""
-if exists('g:started_by_firenvim') && g:started_by_firenvim
-  if g:is_mac
-    set guifont=Iosevka\ Nerd\ Font:h18
-  else
-    set guifont=Consolas
-  endif
+" if exists('g:started_by_firenvim') && g:started_by_firenvim
+"   if g:is_mac
+"     set guifont=Iosevka\ Nerd\ Font:h18
+"   else
+"     set guifont=Consolas
+"   endif
 
-  " general config for firenvim
-  let g:firenvim_config = {
-      \ 'globalSettings': {
-          \ 'alt': 'all',
-      \  },
-      \ 'localSettings': {
-          \ '.*': {
-              \ 'cmdline': 'neovim',
-              \ 'priority': 0,
-              \ 'selector': 'textarea',
-              \ 'takeover': 'never',
-          \ },
-      \ }
-  \ }
+"   " general config for firenvim
+"   let g:firenvim_config = {
+"       \ 'globalSettings': {
+"           \ 'alt': 'all',
+"       \  },
+"       \ 'localSettings': {
+"           \ '.*': {
+"               \ 'cmdline': 'neovim',
+"               \ 'priority': 0,
+"               \ 'selector': 'textarea',
+"               \ 'takeover': 'never',
+"           \ },
+"       \ }
+"   \ }
 
-  function s:setup_firenvim() abort
-    set signcolumn=no
-    set noruler
-    set noshowcmd
-    set laststatus=0
-    set showtabline=0
-  endfunction
+"   function s:setup_firenvim() abort
+"     set signcolumn=no
+"     set noruler
+"     set noshowcmd
+"     set laststatus=0
+"     set showtabline=0
+"   endfunction
 
-  augroup firenvim
-    autocmd!
-    autocmd BufEnter * call s:setup_firenvim()
-    autocmd BufEnter sqlzoo*.txt set filetype=sql
-    autocmd BufEnter github.com_*.txt set filetype=markdown
-    autocmd BufEnter stackoverflow.com_*.txt set filetype=markdown
-  augroup END
-endif
+"   augroup firenvim
+"     autocmd!
+"     autocmd BufEnter * call s:setup_firenvim()
+"     autocmd BufEnter sqlzoo*.txt set filetype=sql
+"     autocmd BufEnter github.com_*.txt set filetype=markdown
+"     autocmd BufEnter stackoverflow.com_*.txt set filetype=markdown
+"   augroup END
+" endif
 
 """"""""""""""""""""""""""""""nvim-gdb settings""""""""""""""""""""""""""""""
-nnoremap <leader>dp :<C-U>GdbStartPDB python -m pdb %<CR>
+" nnoremap <leader>dp :<C-U>GdbStartPDB python -m pdb %<CR>
 
 """"""""""""""""""""""""""""""wilder.nvim settings""""""""""""""""""""""""""""""
 call timer_start(250, { -> s:wilder_init() })
@@ -388,4 +388,4 @@ function! s:wilder_init() abort
 endfunction
 
 """"""""""""""""""""""""""""""vim-auto-save settings""""""""""""""""""""""""""""""
-let g:auto_save = 1  " enable AutoSave on Vim startup
+" let g:auto_save = 1  " enable AutoSave on Vim startup

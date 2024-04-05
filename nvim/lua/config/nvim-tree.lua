@@ -102,7 +102,52 @@ nvim_tree.setup {
   },
 }
 
-keymap.set("n", "<space>s", require("nvim-tree.api").tree.toggle, {
-  silent = true,
-  desc = "toggle nvim-tree",
-})
+local api = require("nvim-tree.api")
+
+local function edit_or_open()
+  local node = api.tree.get_node_under_cursor()
+
+  if node.nodes ~= nil then
+    -- expand or collapse folder
+    api.node.open.edit()
+  else
+    -- open file
+    api.node.open.edit()
+    -- Close the tree if file was opened
+    api.tree.close()
+  end
+end
+
+-- open as vsplit on current node
+local function vsplit_preview()
+  local node = api.tree.get_node_under_cursor()
+
+  if node.nodes ~= nil then
+    -- expand or collapse folder
+    api.node.open.edit()
+  else
+    -- open file as vsplit
+    api.node.open.vertical()
+  end
+
+  -- Finally refocus on tree if it was lost
+  api.tree.focus()
+end
+
+-- global
+vim.api.nvim_set_keymap("n", "<space>e", ":NvimTreeToggle<cr>", {silent = true, noremap = true})
+nmap("<leader>e", ":NvimTreeToggle<cr>", "Toggle NvimTree")
+
+-- on_attach
+nmap("l", edit_or_open, "Edit Or Open")
+nmap("L", vsplit_preview, "Vsplit Preview")
+nmap("h", api.tree.close, "Close")
+nmap("H", api.tree.collapse_all, "Collapse All")
+-- vim.keymap.set("n", "l", edit_or_open,          opts("Edit Or Open"))
+-- vim.keymap.set("n", "L", vsplit_preview,        opts("Vsplit Preview"))
+-- vim.keymap.set("n", "h", api.tree.close,        opts("Close"))
+-- vim.keymap.set("n", "H", api.tree.collapse_all, opts("Collapse All"))
+-- keymap.set("n", "<space>s", api.tree.toggle, {
+--   silent = true,
+--   desc = "toggle nvim-tree",
+-- })
