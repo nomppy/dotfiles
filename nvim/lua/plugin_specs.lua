@@ -20,6 +20,10 @@ local firenvim_not_active = function()
 end
 
 local plugin_specs = {
+  -- Copilot
+  {
+    "github/copilot.vim"
+  },
   -- auto-completion engine
   {
     "hrsh7th/nvim-cmp",
