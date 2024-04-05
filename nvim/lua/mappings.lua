@@ -21,7 +21,6 @@ function vmap(shortcut, command, desc)
   map('v', shortcut, command, desc)
 end
 
-
 -- Move selected
 map('x', 'K', ":move '<-2<CR>gv-gv")
 map('x', 'J', ":move '>+1<CR>gv-gv")
@@ -133,7 +132,7 @@ keymap.set("n", [[\x]], "<cmd>windo lclose <bar> cclose <cr>", {
 })
 
 -- Delete a buffer, without closing the window, see https://stackoverflow.com/q/4465095/6064933
-keymap.set("n", [[\d]], "<cmd>bprevious <bar> bdelete #<cr>", {
+keymap.set("n", "<leader>k", "<cmd>bprevious <bar> bdelete #<cr>", {
   silent = true,
   desc = "delete buffer",
 })

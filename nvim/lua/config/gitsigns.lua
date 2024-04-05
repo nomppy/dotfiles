@@ -38,7 +38,7 @@ gs.setup {
     end, { expr = true, desc = "previous hunk" })
 
     -- Actions
-    map('n', '<leader>hs', gs.stage_hunk)
+    map('n', '<leader>hs', gs.stage_hunk, { desc = "stage this hunk" })
     map('n', '<leader>hS', gs.stage_buffer, { desc = "stage entire buffer"})
     map("n", "<leader>hp", gs.preview_hunk, { desc = "preview hunk" })
     map("n", "<leader>hb", function()

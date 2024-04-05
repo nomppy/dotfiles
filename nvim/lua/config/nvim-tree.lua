@@ -135,7 +135,6 @@ local function vsplit_preview()
 end
 
 -- global
-vim.api.nvim_set_keymap("n", "<space>e", ":NvimTreeToggle<cr>", {silent = true, noremap = true})
 nmap("<leader>e", ":NvimTreeToggle<cr>", "Toggle NvimTree")
 
 -- on_attach
