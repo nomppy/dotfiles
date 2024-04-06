@@ -17,9 +17,9 @@ gs.setup {
     end
 
     -- Navigation
-    map("n", "]c", function()
+    map("n", "]h", function()
       if vim.wo.diff then
-        return "]c"
+        return "]h"
       end
       vim.schedule(function()
         gs.next_hunk()
@@ -27,9 +27,9 @@ gs.setup {
       return "<Ignore>"
     end, { expr = true, desc = "next hunk" })
 
-    map("n", "[c", function()
+    map("n", "[h", function()
       if vim.wo.diff then
-        return "[c"
+        return "[h"
       end
       vim.schedule(function()
         gs.prev_hunk()
@@ -47,7 +47,7 @@ gs.setup {
     map('n', '<leader>hr', gs.reset_hunk, { desc = "reset hunk" })
     map('v', '<leader>hr', function() gs.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end,
         { desc = "reset hunk" })
-    map('n', '<leader>td', gs.toggle_deleted, { desc = "toggle deleted" })
+    map('n', '<leader>htd', gs.toggle_deleted, { desc = "toggle deleted" })
     map('n', '<leader>hd', gs.diffthis, { desc = "diff this" })
 
   end,
