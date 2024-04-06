@@ -37,7 +37,7 @@ nvim_tree.setup {
   },
   update_focused_file = {
     enable = false,
-    update_cwd = false,
+    update_cwd = true,
     ignore_list = {},
   },
   system_open = {
@@ -138,10 +138,10 @@ end
 nmap("<leader>e", ":NvimTreeToggle<cr>", "Toggle NvimTree")
 
 -- on_attach
-nmap("l", edit_or_open, "Edit Or Open")
-nmap("L", vsplit_preview, "Vsplit Preview")
-nmap("h", api.tree.close, "Close")
-nmap("H", api.tree.collapse_all, "Collapse All")
+-- nmap("l", edit_or_open, "Edit Or Open")
+-- nmap("L", vsplit_preview, "Vsplit Preview")
+-- nmap("h", api.tree.close, "Close")
+-- nmap("H", api.tree.collapse_all, "Collapse All")
 -- vim.keymap.set("n", "l", edit_or_open,          opts("Edit Or Open"))
 -- vim.keymap.set("n", "L", vsplit_preview,        opts("Vsplit Preview"))
 -- vim.keymap.set("n", "h", api.tree.close,        opts("Close"))

@@ -50,8 +50,23 @@ local plugin_specs = {
   --     require("config.nvim-cmp")
   --   end,
   -- },
+
+  -- lsp config
+  {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+  },
+  -- -- lua lsp
+  -- { "ii14/emmylua-nvim", ft = "lua" },
+
   -- coq
-  {'ms-jpq/coq_nvim', branch='coq'},
+  {'ms-jpq/coq_nvim', branch='coq',
+    -- config = function()
+    --   require("config.coq")
+    -- end,
+  },
+
   {'ms-jpq/coq.artifacts', branch='artifacts'},
   {'ms-jpq/coq.thirdparty', branch='3p'},
 
@@ -479,9 +494,6 @@ local plugin_specs = {
       require("config.nvim-tree")
     end,
   },
-
-  -- lua lsp
-  { "ii14/emmylua-nvim", ft = "lua" },
 
   -- unintrusive notifcations
   {

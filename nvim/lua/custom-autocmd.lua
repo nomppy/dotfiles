@@ -3,6 +3,11 @@ local api = vim.api
 
 local utils = require("utils")
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "latex", "tex", "md", "markdown" },
+	command = "setlocal spell",
+})
+
 -- Display a message when the current file is not in utf-8 format.
 -- Note that we need to use `unsilent` command here because of this issue:
 -- https://github.com/vim/vim/issues/4379

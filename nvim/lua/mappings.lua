@@ -28,30 +28,12 @@ map('x', 'J', ":move '>+1<CR>gv-gv")
 -- Pane Resizing
 nmap("<Left>", ":vertical resize +1<CR>")
 nmap("<Right>", ":vertical resize -1<CR>")
-nmap("<Up>", ":resize -1<CR>")
-nmap("<Down>", ":resize +1<CR>")
+nmap("<Up>", ":resize +1<CR>")
+nmap("<Down>", ":resize -1<CR>")
 
 -- Misc.
 nmap('<ESC>', ':let @/ = ""<CR>')
 imap('<C-l>', '<c-g>u<Esc>[s1z=`]a<c-g>u')
-
--- " Search files in popup window
-keymap.set("n", "<leader>ff", "<cmd>Leaderf file --popup<cr>", { silent = true, desc = "search files" })
-
--- " Grep project files in popup window
-keymap.set("n", "<leader>fg", "<cmd>Leaderf rg --no-messages --popup<cr>", { silent = true, desc = "search project" })
-
--- " Search vim help files
-keymap.set("n", "<leader>fh", "<cmd>Leaderf help --popup<cr>", { silent = true, desc = "search help" })
-
--- " Search tags in current buffer
-keymap.set("n", "<leader>ft", "<cmd>Leaderf bufTag --popup<cr>", { silent = true, desc = "search tags" })
-
--- " Switch buffers
-keymap.set("n", "<leader>fb", "<cmd>Leaderf buffer --popup<cr>", { silent = true, desc = "switch buffers" })
-
--- " Search recent files
-keymap.set("n", "<leader>fr", "<cmd>Leaderf mru --popup --absolute-path<cr>", { silent = true, desc = "search recent files" })
 
 -- Save key strokes (now we do not need to press shift to enter command mode).
 keymap.set({ "n", "x" }, ";", ":")
@@ -86,23 +68,7 @@ keymap.set("n", "<leader>fb", "<cmd>Leaderf buffer --popup<cr>", { silent = true
 
 -- " Search recent files
 keymap.set("n", "<leader>fr", "<cmd>Leaderf mru --popup --absolute-path<cr>", { silent = true, desc = "search recent files" })
--- " Search files in popup window
-keymap.set("n", "<leader>ff", "<cmd>Leaderf file --popup<cr>", { silent = true, desc = "search files" })
 
--- " Grep project files in popup window
-keymap.set("n", "<leader>fg", "<cmd>Leaderf rg --no-messages --popup<cr>", { silent = true, desc = "search project" })
-
--- " Search vim help files
-keymap.set("n", "<leader>fh", "<cmd>Leaderf help --popup<cr>", { silent = true, desc = "search help" })
-
--- " Search tags in current buffer
-keymap.set("n", "<leader>ft", "<cmd>Leaderf bufTag --popup<cr>", { silent = true, desc = "search tags" })
-
--- " Switch buffers
-keymap.set("n", "<leader>fb", "<cmd>Leaderf buffer --popup<cr>", { silent = true, desc = "switch buffers" })
-
--- " Search recent files
-keymap.set("n", "<leader>fr", "<cmd>Leaderf mru --popup --absolute-path<cr>", { silent = true, desc = "search recent files" })
 -- Saves the file if modified and quit
 keymap.set("n", "q", "<cmd>x<cr>", { silent = true, desc = "quit current window" })
 
