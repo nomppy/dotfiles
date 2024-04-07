@@ -1,10 +1,10 @@
 # switch display
-alt + cmd - return : yabai -m display --focus recent 
+alt + cmd - return : yabai -m display --focus recent
 shift + ctrl - p : yabai -m display --focus prev
 shift + ctrl - n : yabai -m display --focus next
 
 # switch focus
-#alt - j : yabai -m window --focus next || yabai -m window --focus first 
+#alt - j : yabai -m window --focus next || yabai -m window --focus first
 #alt - k : yabai -m window --focus prev || yabai -m window --focus last
 #alt - h : yabai -m window --focus west
 #alt - l : yabai -m window --focus east
@@ -16,8 +16,8 @@ alt - h : yabai3 focus west
 alt - j : yabai3 focus south
 alt - k : yabai3 focus north
 alt - l : yabai3 focus east
-alt - 0x29 : yabai -m window --focus stack.prev
-alt - 0x27 : yabai -m window --focus stack.next
+# alt - 0x29 : yabai -m window --focus stack.prev
+# alt - 0x27 : yabai -m window --focus stack.next
 
 ## shortcuts for switching between spaces are in system preferences
 # swap windows
@@ -52,8 +52,8 @@ shift + ctrl + alt - h : yabai -m window --space prev
 shift + ctrl + alt - l : yabai -m window --space next
 
 # new window insertions
-alt - b : yabai -m window --insert south 
-alt - v : yabai -m window --insert east 
+alt - b : yabai -m window --insert south
+alt - v : yabai -m window --insert east
 
 lctrl + alt - 0 : yabai -m space --balance
 
@@ -63,7 +63,7 @@ lctrl + alt - 0 : yabai -m space --balance
 #shift + alt - g : yabai -m window --grid 2:2:1:0:1:1
 #shift + alt - b : yabai -m window --grid 2:2:1:2:1:1
 
-# misc. 
+# misc.
 shift + alt - i : yabai -m window --toggle float
 shift + alt - c : yabai -m window --grid 5:5:1:1:3:3
 shift + alt - w : yabai -m window --grid 7:7:2:0:3:7
@@ -73,8 +73,11 @@ shift + alt - f : yabai -m space --mirror y-axis
 alt - p : yabai -m window --toggle zoom-parent
 alt - f : yabai -m window --toggle zoom-fullscreen
 
-shift + ctrl + alt - k : yabai -m window --opacity 1.0 --layer above
-shift + ctrl + alt - j : yabai -m window --opacity 0.0 --layer below
+shift + ctrl + alt - k : yabai -m window --opacity 0.95 --sub-layer above
+shift + ctrl + alt - j : yabai -m window --opacity 0.0 --sub-layer below
+
+# 0.0 is auto opacity
+shift + ctrl + alt - n : yabai -m window --opacity 0.0 --sub-layer auto
 shift + ctrl + alt - s : yabai -m window --toggle sticky
 shift + ctrl + alt - p : yabai -m window --toggle pip --toggle sticky
 
@@ -160,7 +163,7 @@ app < shift - 7 : yabai -m space --focus 7;
 
 # -- "O"ffice / work mode -- #
 :: office @ : ~/Library/Application\ Support/Übersicht/widgets/simple-bar/lib/scripts/yabai-set-mode.sh o orange
-app < o ; office  
+app < o ; office
 office < escape; default
 office < space; app
 office < w : open "/Applications/Microsoft Word.app"; skhd -k space
