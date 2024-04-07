@@ -3,6 +3,7 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 
+export XDG_CONFIG_HOME="${HOME}/.config/"
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -24,7 +25,21 @@ export EDITOR="$(which nvim)"
 export PATH="${PATH}:${HOME}/.local/bin/"
 export PATH="${PATH}:${HOME}/.emacs.d/bin/"
 export PATH=/opt/homebrew/bin:$PATH
-export DBUS_SESSION_BUS_ADDRESS="unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET" 
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/kenneth/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/kenneth/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/kenneth/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/kenneth/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+export DBUS_SESSION_BUS_ADDRESS="unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET"
 eval "$(rbenv init - zsh)"
 eval $(thefuck --alias)
 alias fucky='fuck -y'
@@ -95,7 +110,7 @@ cursor_mode() {
 
 cursor_mode
 
-#---------- AUTOLOAD ---------- 
+#---------- AUTOLOAD ----------
 export FPATH="$HOME/.config/zsh/autoload/:$FPATH"
 autoload -U colors && colors
 source ~/.config/zsh/completion.zsh
@@ -132,24 +147,10 @@ wd() {
   . /Users/kenneth/bin/wd/wd.sh
 }
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/kenneth/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/kenneth/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/kenneth/opt/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/kenneth/opt/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-#
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 eval $(thefuck --alias)
+
+[[ -z $TMUX ]] || conda deactivate; conda activate
