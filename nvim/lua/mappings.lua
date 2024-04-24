@@ -48,8 +48,11 @@ keymap.set("i", "<c-t>", "<Esc>b~lea")
 keymap.set("n", "<leader>p", "m`o<ESC>p``", { desc = "paste below current line" })
 keymap.set("n", "<leader>P", "m`O<ESC>p``", { desc = "paste above current line" })
 
--- Shortcut for faster save and quit
+-- Shortcut for faster save
 keymap.set("n", "<leader>w", "<cmd>update<cr>", { silent = true, desc = "save buffer" })
+
+-- Shortcut for faster redraw
+keymap.set("n", "<leader>r", "<cmd>redraw<cr>", { silent = true, desc = "save buffer" })
 
 -- " Search files in popup window
 keymap.set("n", "<leader>ff", "<cmd>Leaderf file --popup<cr>", { silent = true, desc = "search files" })
