@@ -18,12 +18,12 @@
     "slidingAnimationPace": 4,
     "externalConfigFile": true,
     "enableServer": true,
-    "serverSocketPort": 7776,
+    "serverSocketPort": "7777",
     "yabaiServerRefresh": true
   },
   "themes": {
     "lightTheme": "NightShiftLight",
-    "darkTheme": "TokyoNight"
+    "darkTheme": "CatppuccinMocha"
   },
   "process": {
     "showOnDisplay": "",

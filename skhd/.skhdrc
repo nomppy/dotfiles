@@ -85,10 +85,10 @@ shift + ctrl + alt - p : yabai -m window --toggle pip --toggle sticky
 # keys: https://github.com/koekeishiya/skhd/issues/1
 # can also use `skhd -o` to capture and display keycodes
 
-:: default : ~/Library/Application\ Support/Übersicht/widgets/simple-bar/lib/scripts/yabai-set-mode.sh default
+:: default : ~/Library/Application\ Support/Übersicht/widgets/simple-bar/lib/scripts/yabai-set-mode-server.sh default
 
 # resize / rotate window mode
-:: resize @ : ~/Library/Application\ Support/Übersicht/widgets/simple-bar/lib/scripts/yabai-set-mode.sh R green
+:: resize @ : ~/Library/Application\ Support/Übersicht/widgets/simple-bar/lib/scripts/yabai-set-mode-server.sh R green
 alt - r ; resize
 resize < escape ; default
 resize < return ; default
@@ -101,7 +101,7 @@ resize < shift - 0x1B : yabai3 resize shrink height 0.05
 resize < 0x18 : yabai3 resize grow width 0.05
 resize < r : yabai -m space --rotate 90
 
-:: stack @ : ~/Library/Application\ Support/Übersicht/widgets/simple-bar/lib/scripts/yabai-set-mode.sh s cyan
+:: stack @ : ~/Library/Application\ Support/Übersicht/widgets/simple-bar/lib/scripts/yabai-set-mode-server.sh s cyan
 alt - s; stack
 stack < escape ; default
 stack < s : yabai -m window --insert stack; skhd -k escape
@@ -114,7 +114,7 @@ stack < shift - j : yabai3 stack-leave south
 stack < shift - k : yabai3 stack-leave north
 stack < shift - l : yabai3 stack-leave east
 
-:: app @ : ~/Library/Application\ Support/Übersicht/widgets/simple-bar/lib/scripts/yabai-set-mode.sh a magenta
+:: app @ : ~/Library/Application\ Support/Übersicht/widgets/simple-bar/lib/scripts/yabai-set-mode-server.sh a magenta
 cmd - 0x2A; app
 app < escape ; default
 app < space ; default
@@ -162,7 +162,7 @@ app < alt - 6 : yabai -m space --focus 6;
 app < alt - 7 : yabai -m space --focus 7;
 
 # -- "O"ffice / work mode -- #
-:: office @ : ~/Library/Application\ Support/Übersicht/widgets/simple-bar/lib/scripts/yabai-set-mode.sh o orange
+:: office @ : ~/Library/Application\ Support/Übersicht/widgets/simple-bar/lib/scripts/yabai-set-mode-server.sh o orange
 app < o ; office
 office < escape; default
 office < space; app
@@ -174,6 +174,6 @@ office < m : open "/Applications/Mathematica.app"; skhd -k space
 office < t : open "/Applications/Microsoft Teams.app"; skhd -k space
 
 # skhd passthrough
-:: passthrough : ~/Library/Application\ Support/Übersicht/widgets/simple-bar/lib/scripts/yabai-set-mode.sh P red
+:: passthrough : ~/Library/Application\ Support/Übersicht/widgets/simple-bar/lib/scripts/yabai-set-mode-server.sh P red
 shift + alt + cmd - return; passthrough
 passthrough < shift + alt + cmd - return; default
