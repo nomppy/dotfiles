@@ -1,5 +1,8 @@
 scriptencoding utf-8
 
+" change python provider
+let g:python3_host_prog = '~/.pyenv/versions/py3nvim/bin/python'
+
 " change fillchars for folding, vertical split, end of buffer, and message separator
 set fillchars=fold:\ ,vert:\│,eob:\ ,msgsep:‾,diff:╱
 

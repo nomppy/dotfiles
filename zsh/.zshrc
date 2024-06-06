@@ -154,4 +154,7 @@ export NVM_DIR="$HOME/.nvm"
 eval $(thefuck --alias)
 eval "$(zoxide init zsh)"
 
-[[ -z $TMUX ]] || conda deactivate; conda activate
+# [[ -z $TMUX ]] || conda deactivate; conda activate
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"

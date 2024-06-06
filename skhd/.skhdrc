@@ -21,10 +21,10 @@ alt - l : yabai3 focus east
 
 ## shortcuts for switching between spaces are in system preferences
 # swap windows
-shift + cmd - h : yabai -m window --swap west
-shift + cmd - j : yabai -m window --swap south
-shift + cmd - k : yabai -m window --swap north
-shift + cmd - l : yabai -m window --swap east
+shift + cmd - h : yabai -m window --warp west
+shift + cmd - j : yabai -m window --warp south
+shift + cmd - k : yabai -m window --warp north
+shift + cmd - l : yabai -m window --warp east
 
 # move focused windows
 #shift + alt - h : yabai -m window --warp west || yabai -m window --move rel:-25:0
