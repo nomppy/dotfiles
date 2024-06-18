@@ -8,3 +8,4 @@ github-copilot/*
 .nuxt/
 .nuxtrc
 configstore/
+*.pyc
