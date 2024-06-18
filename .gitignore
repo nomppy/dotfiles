@@ -5,3 +5,6 @@ wireshark/
 rstudio/
 fish/
 github-copilot/*
+.nuxt/
+.nuxtrc
+configstore/
