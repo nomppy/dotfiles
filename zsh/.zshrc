@@ -26,7 +26,7 @@ export DBUS_SESSION_BUS_ADDRESS="unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET"
 #eval "$(zoxide init zsh)"
 
 # Path to your oh-my-zsh installation.
-export ZSH="~/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # ----------antigen plugin manager----------
 if ! [[ -f ~/.antigen/antigen.zsh ]]; then
