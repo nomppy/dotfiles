@@ -20,18 +20,6 @@ local firenvim_not_active = function()
 end
 
 local plugin_specs = {
-  -- Copilot
-  {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
-    config = function()
-      require("copilot").setup({})
-    end,
-  },
-  -- {
-  --   "github/copilot.vim"
-  -- },
   -- auto-completion engine
   -- {
   --   "hrsh7th/nvim-cmp",

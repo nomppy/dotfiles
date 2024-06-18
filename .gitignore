@@ -5,3 +5,5 @@ wireshark/
 rstudio/
 fish/
 github-copilot/*
+nvim/*.json
+gh/

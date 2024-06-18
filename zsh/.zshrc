@@ -22,31 +22,11 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 #export NODE_OPTIONS=--openssl-legacy-provider
 
 export EDITOR="$(which nvim)"
-export PATH="${PATH}:${HOME}/.local/bin/"
-export PATH="${PATH}:${HOME}/.emacs.d/bin/"
-export PATH=/opt/homebrew/bin:$PATH
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/kenneth/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/kenneth/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/kenneth/opt/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/kenneth/opt/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 export DBUS_SESSION_BUS_ADDRESS="unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET"
-eval "$(rbenv init - zsh)"
-eval $(thefuck --alias)
-alias fucky='fuck -y'
 #eval "$(zoxide init zsh)"
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/kenneth/.oh-my-zsh"
+export ZSH="~/.oh-my-zsh"
 
 # ----------antigen plugin manager----------
 if ! [[ -f ~/.antigen/antigen.zsh ]]; then
@@ -140,18 +120,21 @@ alias -g @S='>/dev/null'
 alias -g @H='| head'
 alias -g @T='| tail'
 
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-wd() {
-  . /Users/kenneth/bin/wd/wd.sh
-}
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-eval $(thefuck --alias)
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 eval "$(zoxide init zsh)"
 
-[[ -z $TMUX ]] || conda deactivate; conda activate
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+source /etc/environment
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
