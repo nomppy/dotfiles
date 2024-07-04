@@ -122,7 +122,7 @@ stack < s : yabai -m window --insert stack; skhd -k escape
 
 app < 0x32 : yabai -m window recent --focus;
 app < t : open /Applications/iTerm.app;
-app < w : open /Applications/Warp.app;
+app < w : open /Applications/WeChat.app;
 app < s : open /Applications/Safari.app;
 app < m : open /System/Applications/Messages.app;
 app < d : open /Applications/Discord.app;
