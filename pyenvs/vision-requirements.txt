@@ -1,0 +1,11 @@
+jupyter
+matplotlib
+numpy
+torch
+torchvision
+scipy
+tqdm
+pillow
+scikit-image
+ipython_genutils
+opencv-python
