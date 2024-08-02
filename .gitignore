@@ -9,3 +9,5 @@ github-copilot/*
 .nuxtrc
 configstore/
 *.pyc
+raycast/
+gh/
