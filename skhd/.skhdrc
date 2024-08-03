@@ -1,7 +1,20 @@
+# switch desktop
+alt - return : yabai -m space --focus recent
+shift + ctrl - h : yabai -m space --focus prev
+shift + ctrl - l : yabai -m space --focus next
+alt - 1 : yabai -m space --focus 1
+alt - 2 : yabai -m space --focus 2
+alt - 3 : yabai -m space --focus 3
+alt - 4 : yabai -m space --focus 4
+alt - 5 : yabai -m space --focus 5
+alt - 6 : yabai -m space --focus 6
+alt - 7 : yabai -m space --focus 7
+alt - 8 : yabai -m space --focus 8
+
 # switch display
 alt + cmd - return : yabai -m display --focus recent
-shift + ctrl - p : yabai -m display --focus prev
-shift + ctrl - n : yabai -m display --focus next
+alt + cmd - p : yabai -m display --focus prev
+alt + cmd - n : yabai -m display --focus next
 
 # switch focus
 #alt - j : yabai -m window --focus next || yabai -m window --focus first
@@ -19,7 +32,6 @@ alt - l : yabai3 focus east
 # alt - 0x29 : yabai -m window --focus stack.prev
 # alt - 0x27 : yabai -m window --focus stack.next
 
-## shortcuts for switching between spaces are in system preferences
 # swap windows
 shift + cmd - h : yabai -m window --warp west
 shift + cmd - j : yabai -m window --warp south
@@ -45,7 +57,6 @@ alt + shift - 5 : yabai -m window --space 5
 alt + shift - 6 : yabai -m window --space 6
 alt + shift - 7 : yabai -m window --space 7
 alt + shift - 8 : yabai -m window --space 8
-alt + shift - 9 : yabai -m window --space 9
 
 # move windows to adjacent space
 shift + ctrl + alt - h : yabai -m window --space prev
@@ -152,6 +163,7 @@ app < 4 : yabai -m window --space 4;
 app < 5 : yabai -m window --space 5;
 app < 6 : yabai -m window --space 6;
 app < 7 : yabai -m window --space 7;
+app < 8 : yabai -m window --space 8;
 
 app < alt - 1 : yabai -m space --focus 1;
 app < alt - 2 : yabai -m space --focus 2;
@@ -160,6 +172,7 @@ app < alt - 4 : yabai -m space --focus 4;
 app < alt - 5 : yabai -m space --focus 5;
 app < alt - 6 : yabai -m space --focus 6;
 app < alt - 7 : yabai -m space --focus 7;
+app < alt - 8 : yabai -m space --focus 8;
 
 # -- "O"ffice / work mode -- #
 :: office @ : ~/Library/Application\ Support/Übersicht/widgets/simple-bar/lib/scripts/yabai-set-mode-server.sh o orange
