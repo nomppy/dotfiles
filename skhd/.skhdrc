@@ -105,6 +105,10 @@ resize < escape ; default
 resize < return ; default
 resize < space ; default
 resize < alt - r ; default
+resize < h : yabai3 focus west
+resize < j : yabai3 focus south
+resize < k : yabai3 focus north
+resize < l : yabai3 focus east
 resize < e : yabai -m window --toggle split
 resize < 0x1B : yabai3 resize shrink width 0.05
 resize < shift - 0x18 : yabai3 resize grow height 0.05
