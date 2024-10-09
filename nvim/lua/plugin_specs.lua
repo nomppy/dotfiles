@@ -57,10 +57,11 @@ local plugin_specs = {
     config = function()
       require("config.mason")
     end,
+  },
+  {
     "williamboman/mason-lspconfig.nvim",
-    config = function()
-      require("config.mason-lspconfig")
-    end,
+  },
+  {
     "neovim/nvim-lspconfig",
   },
   -- -- lua lsp
@@ -522,4 +523,3 @@ local lazy_opts = {
 }
 
 require("lazy").setup(plugin_specs, lazy_opts)
-require('mason').setup()
