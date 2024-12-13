@@ -163,3 +163,4 @@ eval "$(rbenv init - zsh)"
 eval $(thefuck --alias)
 
 source <(fzf --zsh)
+export PATH="/Users/kenneth/.pixi/bin:$PATH"
