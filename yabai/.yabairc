@@ -10,7 +10,7 @@
 # see this wiki page for information:
 #  - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)
 #
-yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+yabai -m signal --add event=dock_did_estart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 osascript -e 'tell application id "tracesOf.Uebersicht" to refresh'
 
@@ -30,8 +30,8 @@ yabai -m signal --add event=display_moved action="curl http://localhost:7776/yab
 
 # documentation https://github.com/koekeishiya/yabai/blob/master/doc/yabai.asciidoc#display
 # global settings
-yabai -m config mouse_follows_focus          on
-yabai -m config focus_follows_mouse          autofocus
+yabai -m config mouse_follows_focus          onqcsq
+yabai -m config focus_follows_mouse          off
 yabai -m config window_placement             second_child
 #yabai -m config window_topmost               off # removed in 6.0.0
 yabai -m config window_shadow                off
@@ -69,15 +69,25 @@ yabai -m config right_padding                0
 yabai -m space first --padding               rel:10:10:10:10
 yabai -m space first --layout                float
 
-# global rules
+# ignore
 yabai -m rule --add label="Settings" app="^System Settings$" manage=off sticky=on opacity=1 layer=above
+yabai -m rule --add label="Facetime" app="^FaceTime$" manage=off opacity=1 layer=above
 yabai -m rule --add app="^(Zotero|Instruments|Anki|Vimac|Calculator|Software Update|Dictionary|VLC|System Preferences|System Settings|zoom.us|Photo Booth|Archive Utility|Python|LibreOffice|App Store|Steam Helper|Alfred|Activity Monitor|Rocket|Raycast)$" manage=off
 yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
 yabai -m rule --add label="Quicktime" app="^QuickTime Player$" opacity=1 manage=off layer=above
 yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
 yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
+yabai -m rule --add label="Perplexity" app="Perplexity" manage=off
+
+# automation
+
 yabai -m rule --add label="Discord" app="^Discord$" space=2
+yabai -m rule --add label="jianying" app="^剪映" space=3
+yabai -m rule --add label="VideoFusion" app="^VideoFusion" space=3
+yabai -m rule --add label="Capcut" app="^CapCut" space=3
+yabai -m rule --add label="LR" app="^Adobe Lightroom$" space=3
+
 yabai -m rule --add label="Spotify" app="^Spotify$" space=first grid=5:37:1:0:20:4
-yabai -m rule --add label="Messages" app="^Messages$" space=first opacity=1 grid=5:37:22:1:37:5
+yabai -m rule --add label="Beeper" app="^Beeper$" space=first opacity=1 grid=5:37:20:1:37:5
 
 echo "yabai configuration loaded.."
