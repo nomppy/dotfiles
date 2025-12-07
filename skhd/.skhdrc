@@ -27,8 +27,8 @@ alt + cmd - n : yabai -m display --focus next
 ## change focused window
 alt - h : yabai3 focus west
 alt - j : yabai3 focus south
-alt - k : yabai3 focus north
 alt - l : yabai3 focus east
+alt - k : yabai3 focus north
 # alt - 0x29 : yabai -m window --focus stack.prev
 # alt - 0x27 : yabai -m window --focus stack.next
 
@@ -61,10 +61,6 @@ alt + shift - 8 : yabai -m window --space 8
 # move windows to adjacent space
 shift + ctrl + alt - h : yabai -m window --space prev
 shift + ctrl + alt - l : yabai -m window --space next
-
-# new window insertions
-alt - b : yabai -m window --insert south
-alt - v : yabai -m window --insert east
 
 lctrl + alt - 0 : yabai -m space --balance
 
@@ -151,8 +147,10 @@ app < p : open /Applications/sioyek.app;
 app < f : open /System/Library/CoreServices/Finder.app;
 #app < n : open /Applications/Notion.app;
 app < b : open /Applications/Obsidian.app;
+app < g : open /Applications/Goodlinks.app;
+app < q : open /Applications/qbittorrent.app;
 #app < e : open /Applications/Emacs.app;
-app < a : open /Applications/Arc.app;
+# app < a : open /Applications/Arc.app;
 
 app < shift - a : open /Applications/Anki.app;
 app < shift - m : open https://mail.google.com;
@@ -182,6 +180,15 @@ app < alt - 5 : yabai -m space --focus 5;
 app < alt - 6 : yabai -m space --focus 6;
 app < alt - 7 : yabai -m space --focus 7;
 app < alt - 8 : yabai -m space --focus 8;
+
+# -- "S"cript mode -- #
+:: script 
+alt - a; script
+script < escape; default
+script < space; default
+script < a : "$HOME/scripts/run_anki_wikt.sh"; default
+# alt - d: "$HOME/scripts/run_anki_wikt.sh" 2>> /tmp/anki_skhd.log
+
 
 # -- "O"ffice / work mode -- #
 :: office @ : ~/Library/Application\ Support/Übersicht/widgets/simple-bar/lib/scripts/yabai-set-mode-server.sh o orange

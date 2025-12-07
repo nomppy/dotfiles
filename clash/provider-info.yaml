@@ -1,0 +1,14 @@
+proxies:
+- name: "\U0001F6A8\u8BF7\u5347\u7EA7\u60A8\u7684\u5BA2\u6237\u7AEF! \u8BE6\u60C5\u8BF7\
+    \u770B:"
+  port: 10086
+  server: 127.0.0.1
+  type: socks5
+- name: wku.org/u
+  port: 10086
+  server: 127.0.0.1
+  type: socks5
+- name: 'Balance: 19.93 GB'
+  port: 10086
+  server: 127.0.0.1
+  type: socks5
