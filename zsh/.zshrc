@@ -181,3 +181,6 @@ else
 fi
 unset __mamba_setup
 # <<< mamba initialize <<<
+
+# OpenClaw Completion
+source "/Users/kenneth/.openclaw/completions/openclaw.zsh"
