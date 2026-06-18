@@ -11,3 +11,6 @@ configstore/
 *.pyc
 raycast/
 gh/
+beeper/
+.wrangler/
+swiftpm/

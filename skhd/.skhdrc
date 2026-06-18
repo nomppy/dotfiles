@@ -204,6 +204,7 @@ office < o : open  https://outlook.office.com; skhd -k space
 office < s : open "/Applications/Slack.app"; skhd -k space
 office < m : open "/Applications/Mathematica.app"; skhd -k space
 office < t : open "/Applications/Microsoft Teams.app"; skhd -k space
+office < c : open /System/Applications/Calendar.app; skhd -k space
 
 # skhd passthrough
 :: passthrough : ~/Library/Application\ Support/Übersicht/widgets/simple-bar/lib/scripts/yabai-set-mode-server.sh P red
